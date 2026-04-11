@@ -79,10 +79,10 @@ export default function GiuseppeCostaAereSite() {
         
         <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10">
           {[
-            { icon: Hand, title: "Manipulations Vertébrales", desc: "techniques manuelles pour le rétablissement de la mobilité articulaire." },
-            { icon: Syringe, title: "Dry Needling", desc: "traitement ciblé des points trigger pour relâcher les tensions musculaires." },
-            { icon: Zap, title: "Ondes de Choc", desc: "technologie de pointe pour les tendinopathies, les calcifications et les inflammations." },
-            { icon: Hand, title: "Massage Thérapeutique", desc: "massage sportif, déconstructif et fonctionnel." }
+            { icon: Hand, title: "Manipulations Vertébrales", desc: "Techniques manuelles pour le rétablissement de la mobilité articulaire." },
+            { icon: Syringe, title: "Dry Needling", desc: "Traitement ciblé des points trigger pour relâcher les tensions musculaires." },
+            { icon: Zap, title: "Ondes de Choc", desc: "Technologie de pointe pour les tendinopathies, les calcifications et les inflammations." },
+            { icon: Hand, title: "Massage Thérapeutique", desc: "Massage sportif, déconstructif et fonctionnel." }
           ].map((item, index) => (
             <div key={index} className="bg-white p-10 rounded-3xl shadow-sm border border-slate-100 hover:shadow-xl transition-shadow flex flex-col items-start">
               <div className="w-16 h-16 bg-sky-100 text-sky-700 rounded-xl flex items-center justify-center mb-8 border border-sky-200">
@@ -109,21 +109,21 @@ export default function GiuseppeCostaAereSite() {
           {[
             {
               title: "Genou",
-              desc: "rééducation post-chirurgicale (ligaments, ménisques) et syndromes de surmenage.",
+              desc: "Rééducation post-chirurgicale (ligaments, ménisques) et syndromes de surmenage.",
               muscles: ['knees', 'quadriceps'],
               // SVG 0-0-100-200 @ 128px wide = 256px tall (scale 1.28). Knee Y≈140-157 → pixel 179-201. Center@190, offset=190-64=-126
               crop: { marginTop: -126 },
             },
             {
               title: "Épaule",
-              desc: "prise en charge de l'instabilité, des lésions de la coiffe des rotateurs et de la douleur chronique.",
+              desc: "Prise en charge de l'instabilité, des lésions de la coiffe des rotateurs et de la douleur chronique.",
               muscles: ['front-deltoids', 'trapezius'],
               // Shoulder/trap Y≈25-60 → pixel 32-77. Start at pixel 15 so shoulder sits nicely in upper-center of circle
               crop: { marginTop: -15 },
             },
             {
               title: "Cheville",
-              desc: "récupération post-entorse, instabilités chroniques et rééducation tendineuse.",
+              desc: "Récupération post-entorse, instabilités chroniques et rééducation tendineuse.",
               muscles: ['calves', 'left-soleus', 'right-soleus'],
               // Calves+foot Y≈153-200 → pixel 196-256. Shift up to show full foot: center@224, offset=224-64=-160
               crop: { marginTop: -155 },
