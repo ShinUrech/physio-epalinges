@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { Phone, MapPin, Clock, ArrowRight, Hand, Syringe, Zap } from 'lucide-react';
+import Model, { IExerciseData } from 'react-body-highlighter';
 
 export default function GiuseppeCostaAereSite() {
   const [lightbox, setLightbox] = React.useState<string | null>(null);
@@ -158,13 +159,35 @@ export default function GiuseppeCostaAereSite() {
         
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 text-center">
           {[
-            { title: "Genou",   label: "G", desc: "rééducation post-chirurgicale (ligaments, ménisques) et syndromes de surmenage." },
-            { title: "Épaule",  label: "É", desc: "prise en charge de l'instabilité, des lésions de la coiffe des rotateurs et de la douleur chronique." },
-            { title: "Cheville",label: "C", desc: "récupération post-entorse, instabilités chroniques et rééducation tendineuse." },
+            {
+              title: "Genou",
+              desc: "rééducation post-chirurgicale (ligaments, ménisques) et syndromes de surmenage.",
+              muscles: ['knees', 'quadriceps'],
+              crop: { marginTop: -126 },
+            },
+            {
+              title: "Épaule",
+              desc: "prise en charge de l'instabilité, des lésions de la coiffe des rotateurs et de la douleur chronique.",
+              muscles: ['front-deltoids', 'trapezius'],
+              crop: { marginTop: -15 },
+            },
+            {
+              title: "Cheville",
+              desc: "récupération post-entorse, instabilités chroniques et rééducation tendineuse.",
+              muscles: ['calves', 'left-soleus', 'right-soleus'],
+              crop: { marginTop: -155 },
+            },
           ].map((item, index) => (
             <div key={index} className="bg-white pt-6 pb-10 px-6 rounded-2xl border border-slate-100 hover:border-sky-300 transition-colors flex flex-col items-center shadow-sm">
-              <div className="w-32 h-32 rounded-full bg-gradient-to-br from-sky-100 to-sky-200 border-2 border-sky-300 flex items-center justify-center mb-6">
-                <span className="text-5xl font-extrabold text-sky-600">{item.label}</span>
+              <div style={{ width: 128, height: 128, borderRadius: '50%', overflow: 'hidden', flexShrink: 0, marginBottom: '1.5rem', background: 'white' }}>
+                <div style={{ marginTop: item.crop.marginTop }}>
+                  <Model
+                    data={[{ name: item.title, muscles: item.muscles } as IExerciseData]}
+                    highlightedColors={['#0ea5e9']}
+                    bodyColor="#cbd5e1"
+                    svgStyle={{ width: '128px', height: 'auto', display: 'block' }}
+                  />
+                </div>
               </div>
               <h3 className="text-2xl font-bold mb-4 tracking-tight">{item.title}</h3>
               <p className="text-slate-700 leading-relaxed text-base">
