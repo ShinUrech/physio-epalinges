@@ -1,14 +1,16 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Prata, Lato } from "next/font/google";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const prata = Prata({
+  weight: "400",
+  variable: "--font-prata",
   subsets: ["latin"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const lato = Lato({
+  weight: ["300", "400", "700", "900"],
+  variable: "--font-lato",
   subsets: ["latin"],
 });
 
@@ -24,8 +26,8 @@ export default function RootLayout({
 }>) {
   return (
     <html
-      lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased bg-sky-950`}
+      lang="fr"
+      className={`${prata.variable} ${lato.variable} h-full antialiased bg-neutral-950`}
     >
       <body className="min-h-full flex flex-col">{children}</body>
     </html>
