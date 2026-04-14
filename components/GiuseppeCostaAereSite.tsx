@@ -50,9 +50,14 @@ export default function GiuseppeCostaAereSite() {
             <a href="#cabinet" className="hover:text-white transition-colors">Le Cabinet</a>
             <a href="#contact" className="hover:text-white transition-colors">Contact</a>
           </div>
-          <a href="https://www.onedoc.ch/en/physiotherapist/epalinges/pcyqz/giuseppe-costa" target="_blank" rel="noopener noreferrer" className="bg-neutral-200 text-neutral-950 px-7 py-2.5 rounded-full text-sm font-bold hover:bg-neutral-300 transition-colors shadow-sm">
-            Prendre RDV
-          </a>
+          <div className="hidden md:flex items-center gap-4">
+            <a href="https://www.onedoc.ch/en/physiotherapist/epalinges/pcyqz/giuseppe-costa" target="_blank" rel="noopener noreferrer" className="bg-neutral-200 text-neutral-950 px-7 py-2.5 rounded-full text-sm font-bold hover:bg-neutral-300 transition-colors shadow-sm">
+              Prendre RDV
+            </a>
+            <a href="/exercices" className="bg-neutral-700 text-white px-8 py-3 rounded-full text-base font-bold hover:bg-neutral-600 transition-colors shadow-sm">
+              Exercises
+            </a>
+          </div>
         </div>
       </nav>
 
