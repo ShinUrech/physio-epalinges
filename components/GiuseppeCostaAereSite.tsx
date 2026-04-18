@@ -6,6 +6,7 @@ import Model, { IExerciseData } from 'react-body-highlighter';
 
 export default function GiuseppeCostaAereSite() {
   const [lightbox, setLightbox] = React.useState<string | null>(null);
+  const [mobileMenu, setMobileMenu] = React.useState(false);
   const officeCarouselRef = React.useRef<HTMLDivElement>(null);
 
   React.useEffect(() => {
@@ -58,7 +59,35 @@ export default function GiuseppeCostaAereSite() {
               Vidéos
             </a>
           </div>
+          {/* Mobile hamburger */}
+          <button
+            className="md:hidden text-white p-2"
+            onClick={() => setMobileMenu(o => !o)}
+            aria-label="Menu"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+              {mobileMenu
+                ? <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+                : <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />}
+            </svg>
+          </button>
         </div>
+        {/* Mobile dropdown */}
+        {mobileMenu && (
+          <div className="md:hidden px-6 pb-6 flex flex-col gap-4" style={{ borderTop: '1px solid #333' }}>
+            <a href="#cabinet" onClick={() => setMobileMenu(false)} className="text-sm font-medium py-2 transition-colors" style={{ color: '#C0B8AD' }}>Le Cabinet</a>
+            <a href="#specialites" onClick={() => setMobileMenu(false)} className="text-sm font-medium py-2 transition-colors" style={{ color: '#C0B8AD' }}>Spécialités</a>
+            <a href="#contact" onClick={() => setMobileMenu(false)} className="text-sm font-medium py-2 transition-colors" style={{ color: '#C0B8AD' }}>Contact</a>
+            <div className="flex flex-col gap-3 pt-2">
+              <a href="https://www.onedoc.ch/en/physiotherapist/epalinges/pcyqz/giuseppe-costa" target="_blank" rel="noopener noreferrer" className="text-center px-7 py-2.5 rounded-full text-sm font-bold transition-colors" style={{ backgroundColor: '#B8977E', color: '#fff' }}>
+                Prendre RDV
+              </a>
+              <a href="/exercices" className="text-center text-white px-7 py-2.5 rounded-full text-sm font-bold transition-colors" style={{ backgroundColor: '#2C2C2C' }}>
+                Vidéos
+              </a>
+            </div>
+          </div>
+        )}
       </nav>
 
       {/* HERO SECTION (Très aérée) */}
@@ -82,70 +111,24 @@ export default function GiuseppeCostaAereSite() {
         </div>
       </header>
 
-      {/* INTRODUCTION / MASSAGE SECTION */}
-      <section id="cabinet" className="py-24 px-6 max-w-7xl mx-auto">
+      {/* INTRODUCTION SECTION */}
+      <section id="cabinet" className="py-24 px-6 max-w-7xl mx-auto overflow-hidden">
         <div className="grid md:grid-cols-[1.5fr,1fr] gap-16 items-center">
           <div>
-            <h2 className="text-5xl font-extrabold mb-8 tracking-tight font-serif" style={{ color: '#2C2C2C' }}>MASSAGES PROFESSIONNELS POUR VOTRE BIEN-ÊTRE</h2>
+            <h2 className="text-3xl md:text-5xl font-extrabold mb-8 tracking-tight font-serif" style={{ color: '#2C2C2C' }}>Expertise au plus haut niveau</h2>
             <div className="w-24 h-2 mb-10 rounded-full" style={{ backgroundColor: '#B8977E' }}></div>
-            <p className="text-lg leading-relaxed mb-6" style={{ color: '#555' }}>
-              Physiothérapeute qualifié avec un master en thérapie manuelle et un master en sport. J&apos;ai travaillé avec plusieurs équipes de football professionnel tels que Lausanne Sport, Servette FC, Vevey et l&apos;équipe nationale suisse.
+            <p className="text-xl leading-relaxed mb-8 font-medium" style={{ color: '#555' }}>
+              Physiothérapeute OMPT et SPT avec plus de 11 ans d&apos;expérience, j&apos;allie thérapie manuelle orthopédique, rééducation sportive et exercice thérapeutique. Formé à l&apos;Université de Bologne et de Pise, j&apos;ai exercé auprès d&apos;athlètes professionnels au Calcio Catania, au Lausanne Sport M21, au Neuchâtel Xamax et avec l&apos;équipe suisse de football espoirs. Ma pratique intègre les techniques Maitland, Mulligan et McKenzie, le dry needling, la manipulation myofasciale Stecco, ainsi que les ondes de choc — pour un retour au sport optimal et une prise en charge complète des pathologies musculosquelettiques.
             </p>
-            <p className="leading-relaxed mb-4" style={{ color: '#555' }}>
-              Vous vous sentez tendu ? Vous avez des douleurs musculaires ou articulaires ?<br />
-              Vous cherchez un traitement ciblé pour améliorer votre bien-être ?
-            </p>
-            <p className="leading-relaxed mb-8" style={{ color: '#555' }}>
-              Je suis un physiothérapeute qualifié et je propose des massages personnalisés pour soulager les tensions, favoriser la relaxation et améliorer la fonctionnalité musculaire et articulaire.
-            </p>
-
-            <h3 className="text-xl font-bold mb-4 font-serif" style={{ color: '#2C2C2C' }}>Comment se déroule la séance ?</h3>
-            <p className="leading-relaxed mb-3" style={{ color: '#555' }}>
-              Chaque séance dure 60 minutes, réparties comme suit :
-            </p>
-            <ul className="space-y-2 ml-1 mb-8" style={{ color: '#555' }}>
-              <li className="flex items-start gap-2"><span style={{ color: '#B8977E' }}>•</span><span><strong style={{ color: '#2C2C2C' }}>15 minutes d&apos;anamnèse personnalisée</strong>, pour identifier vos besoins spécifiques.</span></li>
-              <li className="flex items-start gap-2"><span style={{ color: '#B8977E' }}>•</span><span><strong style={{ color: '#2C2C2C' }}>45 minutes de traitement ciblé</strong>, avec des techniques spécialisées telles que :</span></li>
-              <li className="flex items-start gap-2 ml-6"><span style={{ color: '#B8977E' }}>•</span><span><strong style={{ color: '#2C2C2C' }}>Thérapie manuelle articulaire</strong> : pour améliorer la mobilité des articulations.</span></li>
-              <li className="flex items-start gap-2 ml-6"><span style={{ color: '#B8977E' }}>•</span><span><strong style={{ color: '#2C2C2C' }}>Techniques musculaires</strong> : comme le Strain-Counterstrain pour libérer les tensions profondes.</span></li>
-              <li className="flex items-start gap-2 ml-6"><span style={{ color: '#B8977E' }}>•</span><span><strong style={{ color: '#2C2C2C' }}>Mobilisation neurale</strong> : pour traiter les troubles liés au système nerveux périphérique.</span></li>
-            </ul>
-
-            <h3 className="text-xl font-bold mb-4 font-serif" style={{ color: '#2C2C2C' }}>Les bénéfices de mes traitements :</h3>
-            <ul className="space-y-1.5 mb-8" style={{ color: '#555' }}>
-              <li>✔ Réduction des douleurs musculaires et articulaires</li>
-              <li>✔ Amélioration de la flexibilité et de la mobilité</li>
-              <li>✔ Relaxation profonde et réduction du stress</li>
-              <li>✔ Bien-être général renforcé</li>
-            </ul>
-
-            <h3 className="text-xl font-bold mb-4 font-serif" style={{ color: '#2C2C2C' }}>Les techniques que j&apos;utilise :</h3>
-            <ul className="space-y-1.5 mb-8" style={{ color: '#555' }}>
-              <li className="flex items-start gap-2"><span style={{ color: '#B8977E' }}>•</span>Massage thérapeutique</li>
-              <li className="flex items-start gap-2"><span style={{ color: '#B8977E' }}>•</span>Massage relaxant</li>
-              <li className="flex items-start gap-2"><span style={{ color: '#B8977E' }}>•</span>Massage sportif</li>
-              <li className="flex items-start gap-2"><span style={{ color: '#B8977E' }}>•</span>Massage décontracturant</li>
-            </ul>
-
-            <div className="pt-2">
-              <p className="text-lg font-bold mb-2" style={{ color: '#2C2C2C' }}>📞 Réservez dès maintenant</p>
-              <p className="leading-relaxed" style={{ color: '#555' }}>
-                Offrez-vous une heure pour votre bien-être.<br />
-                Le tout accompagné d&apos;une musique personnalisée et adaptée à vos besoins du moment.
-              </p>
-              <p className="mt-3" style={{ color: '#555' }}>
-                Contactez-moi dès aujourd&apos;hui pour prendre rendez-vous ou pour plus d&apos;informations.
-              </p>
-              <a href="tel:+41217842666" className="inline-block mt-4 px-8 py-3 rounded-full text-base font-bold transition-colors" style={{ backgroundColor: '#B8977E', color: '#fff' }}>
-                021 784 26 66
-              </a>
-              <a href="https://www.onedoc.ch/en/physiotherapist/epalinges/pcyqz/giuseppe-costa" target="_blank" rel="noopener noreferrer" className="inline-block mt-3 ml-3 px-8 py-3 rounded-full text-base font-bold transition-colors border-2" style={{ borderColor: '#B8977E', color: '#B8977E' }}>
-                Prendre RDV en ligne
-              </a>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-10 gap-y-5 font-semibold text-lg" style={{ color: '#2C2C2C' }}>
+              <p className="flex items-center"><ArrowRight className="w-5 h-5 mr-3.5" style={{ color: '#B8977E' }} />Thérapie manuelle OMPT</p>
+              <p className="flex items-center"><ArrowRight className="w-5 h-5 mr-3.5" style={{ color: '#B8977E' }} />Rééducation sportive d&apos;élite</p>
+              <p className="flex items-center"><ArrowRight className="w-5 h-5 mr-3.5" style={{ color: '#B8977E' }} />Dry needling &amp; ondes de choc</p>
+              <p className="flex items-center"><ArrowRight className="w-5 h-5 mr-3.5" style={{ color: '#B8977E' }} />Reconnu Croix-Rouge &amp; NAREG</p>
             </div>
           </div>
           {/* Office carousel */}
-          <div className="relative h-[450px]">
+          <div className="relative h-[300px] md:h-[450px] min-w-0">
             <button
               onClick={() => officeCarouselRef.current?.scrollBy({ left: -320, behavior: 'smooth' })}
               className="absolute left-2 top-1/2 -translate-y-1/2 z-10 shadow-md border rounded-full p-2 transition-colors" style={{ backgroundColor: 'rgba(250,249,246,0.8)', borderColor: '#E5E0DB' }}
@@ -155,10 +138,10 @@ export default function GiuseppeCostaAereSite() {
             </button>
             <div ref={officeCarouselRef} className="flex gap-3 h-full overflow-x-auto rounded-3xl" style={{ scrollbarWidth: 'none' } as React.CSSProperties}>
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/gallery/office_2.jpg" alt="Cabinet – vue générale" onClick={() => setLightbox('/gallery/office_2.jpg')} className="flex-shrink-0 w-[300px] h-full object-cover rounded-3xl shadow-md border border-slate-200 cursor-zoom-in hover:opacity-90 transition-opacity" />
+              <img src="/gallery/office_2.jpg" alt="Cabinet – vue générale" onClick={() => setLightbox('/gallery/office_2.jpg')} className="flex-shrink-0 w-[240px] md:w-[300px] h-full object-cover rounded-3xl shadow-md border border-slate-200 cursor-zoom-in hover:opacity-90 transition-opacity" />
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/gallery/office_3.jpg" alt="Cabinet – équipements" onClick={() => setLightbox('/gallery/office_3.jpg')} className="flex-shrink-0 w-[300px] h-full object-cover rounded-3xl shadow-md border border-slate-200 cursor-zoom-in hover:opacity-90 transition-opacity" />
-              <div className="flex-shrink-0 w-[340px] h-full rounded-3xl overflow-hidden shadow-md border border-slate-200">
+              <img src="/gallery/office_3.jpg" alt="Cabinet – équipements" onClick={() => setLightbox('/gallery/office_3.jpg')} className="flex-shrink-0 w-[240px] md:w-[300px] h-full object-cover rounded-3xl shadow-md border border-slate-200 cursor-zoom-in hover:opacity-90 transition-opacity" />
+              <div className="flex-shrink-0 w-[260px] md:w-[340px] h-full rounded-3xl overflow-hidden shadow-md border border-slate-200">
                 <video src="/gallery/office_1.mp4" controls preload="metadata" muted playsInline className="w-full h-full object-cover" aria-label="Visite du cabinet" />
               </div>
             </div>
@@ -210,8 +193,15 @@ export default function GiuseppeCostaAereSite() {
           <div className="w-20 h-1.5 mx-auto rounded-full mt-8" style={{ backgroundColor: '#B8977E' }}></div>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 text-center">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-12 text-center">
           {[
+            {
+              title: "Dos",
+              desc: "Prise en charge des lombalgies, hernies discales, scolioses, douleurs dorsales chroniques et cervicalgies.",
+              muscles: ['trapezius', 'upper-back', 'lower-back'],
+              crop: { marginTop: -15 },
+              type: 'posterior' as const,
+            },
             {
               title: "Genou",
               desc: "Rééducation post-chirurgicale (ligaments, ménisques) et syndromes de surmenage.",
@@ -239,6 +229,7 @@ export default function GiuseppeCostaAereSite() {
                     highlightedColors={['#B8977E']}
                     bodyColor="#D5CFC7"
                     svgStyle={{ width: '128px', height: 'auto', display: 'block' }}
+                    {...('type' in item && item.type ? { type: item.type } : {})}
                   />
                 </div>
               </div>
@@ -248,6 +239,116 @@ export default function GiuseppeCostaAereSite() {
               </p>
             </div>
           ))}
+        </div>
+      </section>
+
+      {/* MASSAGE THÉRAPEUTIQUE SECTION */}
+      <section className="py-24 px-6 border-y" style={{ backgroundColor: '#FAF9F6', borderColor: '#E5E0DB' }}>
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-extrabold mb-8 tracking-tight font-serif" style={{ color: '#2C2C2C' }}>MASSAGES PROFESSIONNELS POUR VOTRE BIEN-ÊTRE</h2>
+          <div className="w-24 h-2 mb-10 rounded-full" style={{ backgroundColor: '#B8977E' }}></div>
+
+          <div className="grid md:grid-cols-2 gap-16">
+            <div>
+              <p className="text-lg leading-relaxed mb-6" style={{ color: '#555' }}>
+                Physiothérapeute qualifié avec un master en thérapie manuelle et un master en sport. J&apos;ai travaillé avec plusieurs équipes de football professionnel tels que Lausanne Sport, Servette FC, Vevey et l&apos;équipe nationale suisse.
+              </p>
+              <p className="leading-relaxed mb-4" style={{ color: '#555' }}>
+                Vous vous sentez tendu ? Vous avez des douleurs musculaires ou articulaires ?<br />
+                Vous cherchez un traitement ciblé pour améliorer votre bien-être ?
+              </p>
+              <p className="leading-relaxed mb-8" style={{ color: '#555' }}>
+                Je suis un physiothérapeute qualifié et je propose des massages personnalisés pour soulager les tensions, favoriser la relaxation et améliorer la fonctionnalité musculaire et articulaire.
+              </p>
+
+              <h3 className="text-xl font-bold mb-4 font-serif" style={{ color: '#2C2C2C' }}>Comment se déroule la séance ?</h3>
+              <p className="leading-relaxed mb-3" style={{ color: '#555' }}>
+                Chaque séance dure 45 minutes, réparties comme suit :
+              </p>
+              <ul className="space-y-2 ml-1 mb-8" style={{ color: '#555' }}>
+                <li className="flex items-start gap-2"><span style={{ color: '#B8977E' }}>•</span><span><strong style={{ color: '#2C2C2C' }}>1ère phase: Anamnèse personnalisée</strong>, pour identifier vos besoins spécifiques.</span></li>
+                <li className="flex items-start gap-2"><span style={{ color: '#B8977E' }}>•</span><span><strong style={{ color: '#2C2C2C' }}>2ième phase:  Traitement ciblé</strong>, avec des techniques spécialisées telles que :</span></li>
+                <li className="flex items-start gap-2 ml-6"><span style={{ color: '#B8977E' }}>•</span><span><strong style={{ color: '#2C2C2C' }}>Thérapie manuelle articulaire</strong> : pour améliorer la mobilité des articulations.</span></li>
+                <li className="flex items-start gap-2 ml-6"><span style={{ color: '#B8977E' }}>•</span><span><strong style={{ color: '#2C2C2C' }}>Techniques musculaires</strong> : comme le Strain-Counterstrain pour libérer les tensions profondes.</span></li>
+                <li className="flex items-start gap-2 ml-6"><span style={{ color: '#B8977E' }}>•</span><span><strong style={{ color: '#2C2C2C' }}>Mobilisation neurale</strong> : pour traiter les troubles liés au système nerveux périphérique.</span></li>
+              </ul>
+            </div>
+
+            <div>
+              <h3 className="text-xl font-bold mb-4 font-serif" style={{ color: '#2C2C2C' }}>Les bénéfices de mes traitements :</h3>
+              <ul className="space-y-1.5 mb-8" style={{ color: '#555' }}>
+                <li>✔ Réduction des douleurs musculaires et articulaires</li>
+                <li>✔ Amélioration de la flexibilité et de la mobilité</li>
+                <li>✔ Relaxation profonde et réduction du stress</li>
+                <li>✔ Bien-être général renforcé</li>
+              </ul>
+
+              <h3 className="text-xl font-bold mb-4 font-serif" style={{ color: '#2C2C2C' }}>Les techniques que j&apos;utilise :</h3>
+              <ul className="space-y-1.5 mb-8" style={{ color: '#555' }}>
+                <li className="flex items-start gap-2"><span style={{ color: '#B8977E' }}>•</span>Massage thérapeutique</li>
+                <li className="flex items-start gap-2"><span style={{ color: '#B8977E' }}>•</span>Massage relaxant</li>
+                <li className="flex items-start gap-2"><span style={{ color: '#B8977E' }}>•</span>Massage sportif</li>
+                <li className="flex items-start gap-2"><span style={{ color: '#B8977E' }}>•</span>Massage décontracturant</li>
+              </ul>
+
+              <div className="pt-2">
+                <p className="text-lg font-bold mb-2" style={{ color: '#2C2C2C' }}>📞 Réservez dès maintenant</p>
+                <p className="leading-relaxed" style={{ color: '#555' }}>
+                  Offrez-vous une heure pour votre bien-être.<br />
+                  Le tout accompagné d&apos;une musique personnalisée et adaptée à vos besoins du moment.
+                </p>
+                <p className="mt-3" style={{ color: '#555' }}>
+                  Contactez-moi dès aujourd&apos;hui pour prendre rendez-vous ou pour plus d&apos;informations.
+                </p>
+                <a href="tel:+41217842666" className="inline-block mt-4 px-8 py-3 rounded-full text-base font-bold transition-colors" style={{ backgroundColor: '#B8977E', color: '#fff' }}>
+                  021 784 26 66
+                </a>
+                <a href="https://www.onedoc.ch/en/physiotherapist/epalinges/pcyqz/giuseppe-costa" target="_blank" rel="noopener noreferrer" className="inline-block mt-3 ml-3 px-8 py-3 rounded-full text-base font-bold transition-colors border-2" style={{ borderColor: '#B8977E', color: '#B8977E' }}>
+                  Prendre RDV en ligne
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ACADEMIC EXCELLENCE SECTION */}
+      <section className="py-20 px-6 border-y" style={{ backgroundColor: '#F3F0EB', borderColor: '#E5E0DB' }}>
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-4xl font-extrabold mb-8 tracking-tight font-serif" style={{ color: '#2C2C2C' }}>Excellence Académique et Professionnelle</h2>
+          <div className="w-24 h-2 mb-12 rounded-full" style={{ backgroundColor: '#B8977E' }}></div>
+          <div className="grid md:grid-cols-2 gap-x-16 gap-y-6 font-semibold leading-relaxed text-xl" style={{ color: '#2C2C2C' }}>
+            <p className="flex items-start"><ArrowRight className="w-6 h-6 mr-4 shrink-0 mt-1.5" style={{ color: '#B8977E' }} />
+              <span>Diplôme de Physiothérapie — Università di Catania (110/110)</span>
+            </p>
+            <p className="flex items-start"><ArrowRight className="w-6 h-6 mr-4 shrink-0 mt-1.5" style={{ color: '#B8977E' }} />
+              <span>Master en Physiothérapie du Sport — Università di Pisa</span>
+            </p>
+            <p className="flex items-start"><ArrowRight className="w-6 h-6 mr-4 shrink-0 mt-1.5" style={{ color: '#B8977E' }} />
+              <span>Master en Thérapie manuelle &amp; Exercice thérapeutique — Université de Bologne</span>
+            </p>
+            <p className="flex items-start"><ArrowRight className="w-6 h-6 mr-4 shrink-0 mt-1.5" style={{ color: '#B8977E' }} />
+              <span>Titre OMPT (Orthopaedic Manipulative Physical Therapist) — IFOMPT</span>
+            </p>
+            <p className="flex items-start"><ArrowRight className="w-6 h-6 mr-4 shrink-0 mt-1.5" style={{ color: '#B8977E' }} />
+              <span>Professeur de pathokinésiologie — Université Ludes (Lugano)</span>
+            </p>
+            <p className="flex items-start"><ArrowRight className="w-6 h-6 mr-4 shrink-0 mt-1.5" style={{ color: '#B8977E' }} />
+              <span>Physiothérapeute — Équipe suisse de football espoirs</span>
+            </p>
+            <p className="flex items-start"><ArrowRight className="w-6 h-6 mr-4 shrink-0 mt-1.5" style={{ color: '#B8977E' }} />
+              <span>Chef physiothérapie — Neuchâtel Xamax</span>
+            </p>
+            <p className="flex items-start"><ArrowRight className="w-6 h-6 mr-4 shrink-0 mt-1.5" style={{ color: '#B8977E' }} />
+              <span>Physiothérapeute sportif — Lausanne Sport M21</span>
+            </p>
+            <p className="flex items-start"><ArrowRight className="w-6 h-6 mr-4 shrink-0 mt-1.5" style={{ color: '#B8977E' }} />
+              <span>Physiothérapeute — Calcio Catania S.p.A.</span>
+            </p>
+            <p className="flex items-start"><ArrowRight className="w-6 h-6 mr-4 shrink-0 mt-1.5" style={{ color: '#B8977E' }} />
+              <span>Erasmus Plus — Hôpital d&apos;orthopédie et réhabilitation, Poznan (Pologne)</span>
+            </p>
+          </div>
         </div>
       </section>
 
@@ -299,46 +400,6 @@ export default function GiuseppeCostaAereSite() {
               )}
             </div>
           ))}
-        </div>
-      </section>
-
-      {/* ACADEMIC EXCELLENCE SECTION (Aérée par padding py-20) */}
-      <section className="py-20 px-6 border-y" style={{ backgroundColor: '#F3F0EB', borderColor: '#E5E0DB' }}>
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-4xl font-extrabold mb-8 tracking-tight font-serif" style={{ color: '#2C2C2C' }}>Excellence Académique et Professionnelle</h2>
-          <div className="w-24 h-2 mb-12 rounded-full" style={{ backgroundColor: '#B8977E' }}></div>
-          <div className="grid md:grid-cols-2 gap-x-16 gap-y-6 font-semibold leading-relaxed text-xl" style={{ color: '#2C2C2C' }}>
-            <p className="flex items-start"><ArrowRight className="w-6 h-6 mr-4 shrink-0 mt-1.5" style={{ color: '#B8977E' }} />
-              <span>Diplôme de Physiothérapie — Università di Catania (110/110)</span>
-            </p>
-            <p className="flex items-start"><ArrowRight className="w-6 h-6 mr-4 shrink-0 mt-1.5" style={{ color: '#B8977E' }} />
-              <span>Master en Physiothérapie du Sport — Università di Pisa</span>
-            </p>
-            <p className="flex items-start"><ArrowRight className="w-6 h-6 mr-4 shrink-0 mt-1.5" style={{ color: '#B8977E' }} />
-              <span>Master en Thérapie manuelle &amp; Exercice thérapeutique — Université de Bologne</span>
-            </p>
-            <p className="flex items-start"><ArrowRight className="w-6 h-6 mr-4 shrink-0 mt-1.5" style={{ color: '#B8977E' }} />
-              <span>Titre OMPT (Orthopaedic Manipulative Physical Therapist) — IFOMPT</span>
-            </p>
-            <p className="flex items-start"><ArrowRight className="w-6 h-6 mr-4 shrink-0 mt-1.5" style={{ color: '#B8977E' }} />
-              <span>Professeur de pathokinésiologie — Université Ludes (Lugano)</span>
-            </p>
-            <p className="flex items-start"><ArrowRight className="w-6 h-6 mr-4 shrink-0 mt-1.5" style={{ color: '#B8977E' }} />
-              <span>Physiothérapeute — Équipe suisse de football espoirs</span>
-            </p>
-            <p className="flex items-start"><ArrowRight className="w-6 h-6 mr-4 shrink-0 mt-1.5" style={{ color: '#B8977E' }} />
-              <span>Chef physiothérapie — Neuchâtel Xamax</span>
-            </p>
-            <p className="flex items-start"><ArrowRight className="w-6 h-6 mr-4 shrink-0 mt-1.5" style={{ color: '#B8977E' }} />
-              <span>Physiothérapeute sportif — Lausanne Sport M21</span>
-            </p>
-            <p className="flex items-start"><ArrowRight className="w-6 h-6 mr-4 shrink-0 mt-1.5" style={{ color: '#B8977E' }} />
-              <span>Physiothérapeute — Calcio Catania S.p.A.</span>
-            </p>
-            <p className="flex items-start"><ArrowRight className="w-6 h-6 mr-4 shrink-0 mt-1.5" style={{ color: '#B8977E' }} />
-              <span>Erasmus Plus — Hôpital d&apos;orthopédie et réhabilitation, Poznan (Pologne)</span>
-            </p>
-          </div>
         </div>
       </section>
 
