@@ -27,7 +27,7 @@ export default function RootLayout({
   return (
     <html
       lang="fr"
-      className={`${prata.variable} ${lato.variable} h-full antialiased bg-neutral-950`}
+      className={`${prata.variable} ${lato.variable} h-full antialiased bg-[#1E1E1E]`}
     >
       <body className="min-h-full flex flex-col">{children}</body>
     </html>
