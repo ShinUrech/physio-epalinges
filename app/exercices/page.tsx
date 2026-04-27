@@ -4,9 +4,8 @@ import React from 'react';
 import Link from 'next/link';
 import { ArrowLeft, ShoppingBag, ChevronDown, ChevronLeft, ChevronRight, X } from 'lucide-react';
 
-const LOREM = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.';
-
-type ModalVideo = { label: string } | null;
+type VideoItem = { label: string; src?: string; title?: string; desc?: string };
+type ModalVideo = VideoItem | null;
 
 function VideoModal({ video, onClose }: { video: ModalVideo; onClose: () => void }) {
   React.useEffect(() => {
@@ -26,18 +25,29 @@ function VideoModal({ video, onClose }: { video: ModalVideo; onClose: () => void
         className="rounded-2xl shadow-2xl w-full max-w-2xl overflow-hidden" style={{ backgroundColor: '#FAF9F6' }}
         onClick={e => e.stopPropagation()}
       >
-        {/* Placeholder video area */}
-        <div className="aspect-video flex items-center justify-center text-sm font-medium" style={{ backgroundColor: '#EAE6E0', color: '#999' }}>
-          {video.label}
-        </div>
+        {video.src ? (
+          <video
+            key={video.src}
+            className="w-full aspect-video bg-black"
+            controls
+            autoPlay
+            playsInline
+          >
+            <source src={video.src} />
+          </video>
+        ) : (
+          <div className="aspect-video flex items-center justify-center text-sm font-medium" style={{ backgroundColor: '#EAE6E0', color: '#999' }}>
+            {video.label}
+          </div>
+        )}
         <div className="px-8 py-6">
           <div className="flex items-start justify-between gap-4 mb-3">
-            <h3 className="text-2xl font-extrabold font-serif tracking-tight" style={{ color: '#2C2C2C' }}>Title</h3>
+            <h3 className="text-2xl font-extrabold font-serif tracking-tight" style={{ color: '#2C2C2C' }}>{video.title ?? video.label}</h3>
             <button onClick={onClose} className="transition-colors mt-1 shrink-0" style={{ color: '#B8977E' }}>
               <X className="w-5 h-5" />
             </button>
           </div>
-          <p className="text-sm leading-relaxed" style={{ color: '#666' }}>{LOREM}</p>
+          {video.desc && <p className="text-sm leading-relaxed" style={{ color: '#666' }}>{video.desc}</p>}
         </div>
       </div>
     </div>
@@ -46,58 +56,50 @@ function VideoModal({ video, onClose }: { video: ModalVideo; onClose: () => void
 
 const categories = [
   {
-    title: 'Catégorie 1',
-    description: 'Exercices de renforcement pour stabiliser et protéger les articulations.',
+    title: 'Épaule — Élastiques de résistance',
+    description: 'Exercices de renforcement de l\'épaule avec élastiques. Améliore la stabilité de la coiffe des rotateurs et prévient les blessures à l\'épaule.',
+    videos: [
+      { label: 'Exercice 1', src: '/gallery/Shoulder elastic_/drive-download-20260427T095302Z-3-001/IMG_4716.MOV', title: 'Rotation interne de l\'épaule', desc: 'Assis, coude fléchi à 90°, effectuez une rotation interne contre la résistance de l\'élastique. Renforce le subscapulaire et améliore la stabilité de la coiffe des rotateurs.' },
+      { label: 'Exercice 2', src: '/gallery/Shoulder elastic_/drive-download-20260427T095302Z-3-001/IMG_4717.MOV', title: 'Rotation externe de l\'épaule', desc: 'Assis, coude fléchi à 90°, effectuez une rotation externe contre la résistance de l\'élastique. Renforce l\'infra-épineux et le petit rond, essentiels pour la stabilité postérieure de l\'épaule.' },
+      { label: 'Exercice 3', src: '/gallery/Shoulder elastic_/drive-download-20260427T095302Z-3-001/IMG_4721.MOV', title: 'Abduction horizontale', desc: 'Debout, bras tendus à hauteur des épaules, écartez les bras en tirant l\'élastique horizontalement. Renforce les muscles postérieurs de l\'épaule et améliore la posture.' },
+      { label: 'Exercice 4', src: '/gallery/Shoulder elastic_/drive-download-20260427T095302Z-3-001/IMG_4723.MOV', title: 'Rétraction scapulaire', desc: 'Assis, élastique fixé devant vous, tirez les deux bras en arrière en serrant les omoplates. Renforce les rhomboïdes et les trapèzes moyens pour une meilleure stabilité scapulaire.' },
+    ],
+  },
+  {
+    title: 'Genou — Élastiques de résistance',
+    description: 'Exercices de rééducation du genou avec élastiques. Renforce les muscles stabilisateurs (quadriceps, ischio-jambiers) et améliore la stabilité articulaire.',
+    videos: [
+      { label: 'Exercice 1', src: '/gallery/Knee elastic_/IMG_4771.MOV', title: 'Abduction de hanche en décubitus latéral', desc: 'Allongé sur le côté, élastique autour des cuisses, soulevez la jambe vers le haut. Renforce les abducteurs de hanche (moyen fessier) pour stabiliser le genou lors de la marche et de la course.' },
+      { label: 'Exercice 2', src: '/gallery/Knee elastic_/IMG_4772.MOV', title: 'Extension de genou en décubitus dorsal', desc: 'Allongé sur le dos, élastique autour des jambes, étendez le genou contre la résistance. Renforce le quadriceps et améliore la stabilité active du genou.' },
+      { label: 'Exercice 3', src: '/gallery/Knee elastic_/IMG_4773.MOV', title: 'Flexion de genou en position couchée', desc: 'En position couchée, élastique autour des chevilles, fléchissez le genou vers les fesses. Renforce les ischio-jambiers, stabilisateurs postérieurs du genou.' },
+      { label: 'Exercice 4', src: '/gallery/Knee elastic_/IMG_4774.MOV', title: 'Squat latéral avec élastique', desc: 'Debout, élastique autour des genoux et des chevilles, effectuez un pas latéral en gardant les genoux alignés. Renforce les abducteurs et améliore le contrôle neuromusculaire.' },
+      { label: 'Exercice 5', src: '/gallery/Knee elastic_/IMG_4775.MOV', title: 'Équilibre unipodal avec résistance', desc: 'Sur un pied, élastique autour des jambes, maintenez l\'équilibre tout en résistant à la traction latérale. Améliore la proprioception et la stabilité dynamique du genou.' },
+      { label: 'Exercice 6', src: '/gallery/Knee elastic_/IMG_4776.MOV', title: 'Fente avec contrôle du genou', desc: 'En fente avant, élastique autour des genoux, maintenez l\'alignement genou-cheville tout en descendant. Renforce le quadriceps et entraîne le contrôle valgus du genou.' },
+    ],
+  },
+  {
+    title: 'Cheville — Élastiques de résistance',
+    description: 'Exercices de renforcement de la cheville avec élastiques. Améliore la proprioception, renforce les muscles péroniers et prévient les entorses.',
     videos: [
       { label: 'Exercice 1 — À venir' },
       { label: 'Exercice 2 — À venir' },
       { label: 'Exercice 3 — À venir' },
       { label: 'Exercice 4 — À venir' },
-      { label: 'Exercice 5 — À venir' },
-      { label: 'Exercice 6 — À venir' },
-      { label: 'Exercice 7 — À venir' },
     ],
   },
   {
-    title: 'Catégorie 2',
-    description: 'Exercices pour améliorer l\'amplitude articulaire et relâcher les tensions.',
+    title: 'Coude — Élastiques de résistance',
+    description: 'Exercices de rééducation du coude et de l\'avant-bras avec élastiques. Indiqués pour les tendinopathies (tennis elbow, golf elbow) et le renforcement des muscles de la préhension.',
     videos: [
-      { label: 'Exercice 1 — À venir' },
-      { label: 'Exercice 2 — À venir' },
-      { label: 'Exercice 3 — À venir' },
-      { label: 'Exercice 4 — À venir' },
-    ],
-  },
-  {
-    title: 'Catégorie 3',
-    description: 'Exercices pour rééduquer les réflexes d\'équilibre et prévenir les récidives.',
-    videos: [
-      { label: 'Exercice 1 — À venir' },
-      { label: 'Exercice 2 — À venir' },
-      { label: 'Exercice 3 — À venir' },
-    ],
-  },
-  {
-    title: 'Catégorie 4',
-    description: 'Rééducation ciblée de l\'épaule, du coude et du poignet.',
-    videos: [
-      { label: 'Exercice 1 — À venir' },
-      { label: 'Exercice 2 — À venir' },
-      { label: 'Exercice 3 — À venir' },
-    ],
-  },
-  {
-    title: 'Catégorie 5',
-    description: 'Exercices de stabilisation lombaire et de rééducation cervicale.',
-    videos: [
-      { label: 'Exercice 1 — À venir' },
-      { label: 'Exercice 2 — À venir' },
-      { label: 'Exercice 3 — À venir' },
+      { label: 'Exercice 1', src: '/gallery/Elbow elastic/IMG_4718.MOV', title: 'Flexion du coude', desc: 'Assis, élastique fixé sous le pied, fléchissez l\'avant-bras vers l\'épaule. Renforce le biceps brachial et le brachioradialis. Indiqué en phase de rééducation du coude.' },
+      { label: 'Exercice 2', src: '/gallery/Elbow elastic/IMG_4719.MOV', title: 'Extension du coude', desc: 'Assis, élastique en appui sur la cuisse, étendez l\'avant-bras vers le bas contre résistance. Renforce le triceps et rééduque la chaîne extensrice du coude.' },
+      { label: 'Exercice 3', src: '/gallery/Elbow elastic/IMG_4720.MOV', title: 'Extension du poignet (tennis elbow)', desc: 'Avant-bras posé sur la cuisse, paume vers le bas, étendez le poignet contre l\'élastique. Renforce les extenseurs de poignet, exercice clé dans le traitement de l\'épicondylite latérale.' },
+      { label: 'Exercice 4', src: '/gallery/Elbow elastic/IMG_4722.MOV', title: 'Flexion du poignet (golf elbow)', desc: 'Avant-bras posé sur la cuisse, paume vers le haut, fléchissez le poignet contre l\'élastique. Renforce les fléchisseurs de poignet, indiqué dans la rééducation de l\'épicondylite médiale.' },
     ],
   },
 ];
 
-function VideoGrid({ videos, onVideoClick }: { videos: typeof categories[number]['videos']; onVideoClick: (v: { label: string }) => void }) {
+function VideoGrid({ videos, onVideoClick }: { videos: VideoItem[]; onVideoClick: (v: VideoItem) => void }) {
   const scrollRef = React.useRef<HTMLDivElement>(null);
   const [canScrollLeft, setCanScrollLeft] = React.useState(false);
   const [canScrollRight, setCanScrollRight] = React.useState(true);
@@ -130,9 +132,14 @@ function VideoGrid({ videos, onVideoClick }: { videos: typeof categories[number]
           <button
             key={vi}
             onClick={() => onVideoClick(vid)}
-            className="rounded-xl aspect-video flex items-center justify-center text-sm font-medium transition-colors cursor-pointer" style={{ backgroundColor: '#F3F0EB', border: '1px solid #E5E0DB', color: '#888' }}
+            className="rounded-xl aspect-video overflow-hidden relative flex items-center justify-center text-sm font-medium transition-colors cursor-pointer" style={{ backgroundColor: '#F3F0EB', border: '1px solid #E5E0DB', color: '#888' }}
           >
-            {vid.label}
+            {vid.src ? (
+              <video src={vid.src} className="w-full h-full object-cover pointer-events-none" muted playsInline preload="metadata" />
+            ) : (
+              vid.label
+            )}
+            <span className="absolute bottom-2 left-2 text-xs font-bold px-2 py-0.5 rounded-full" style={{ backgroundColor: '#B8977E', color: '#fff' }}>{vi + 1}</span>
           </button>
         ))}
       </div>
@@ -159,9 +166,14 @@ function VideoGrid({ videos, onVideoClick }: { videos: typeof categories[number]
           <button
             key={vi}
             onClick={() => onVideoClick(vid)}
-            className="rounded-xl flex-none w-64 aspect-video flex items-center justify-center text-sm font-medium transition-colors cursor-pointer snap-start" style={{ backgroundColor: '#F3F0EB', border: '1px solid #E5E0DB', color: '#888' }}
+            className="rounded-xl flex-none w-64 aspect-video overflow-hidden relative flex items-center justify-center text-sm font-medium transition-colors cursor-pointer snap-start" style={{ backgroundColor: '#F3F0EB', border: '1px solid #E5E0DB', color: '#888' }}
           >
-            {vid.label}
+            {vid.src ? (
+              <video src={vid.src} className="w-full h-full object-cover pointer-events-none" muted playsInline preload="metadata" />
+            ) : (
+              vid.label
+            )}
+            <span className="absolute bottom-2 left-2 text-xs font-bold px-2 py-0.5 rounded-full" style={{ backgroundColor: '#B8977E', color: '#fff' }}>{vi + 1}</span>
           </button>
         ))}
       </div>
@@ -178,7 +190,7 @@ function VideoGrid({ videos, onVideoClick }: { videos: typeof categories[number]
   );
 }
 
-function AccordionSection({ cat, onVideoClick }: { cat: typeof categories[number]; onVideoClick: (v: { label: string }) => void }) {
+function AccordionSection({ cat, onVideoClick }: { cat: typeof categories[number]; onVideoClick: (v: VideoItem) => void }) {
   const [open, setOpen] = React.useState(false);
   return (
     <div className="rounded-2xl overflow-hidden shadow-sm" style={{ border: '1px solid #E5E0DB', backgroundColor: '#FAF9F6' }}>
@@ -255,7 +267,7 @@ export default function ExercicesPage() {
               <span className="px-3 py-1 rounded-full bg-green-200 text-green-800">Moyen</span>
               <span className="px-3 py-1 rounded-full bg-blue-200 text-blue-800">Fort</span>
               <span className="px-3 py-1 rounded-full text-white" style={{ backgroundColor: '#2C2C2C' }}>Très fort</span>
-              <a href="tel:+41217842666" className="ml-auto px-4 py-1 rounded-full text-white transition-colors" style={{ backgroundColor: '#B8977E' }}>
+              <a href="https://wa.me/41768240387" target="_blank" rel="noopener noreferrer" className="ml-auto px-4 py-1 rounded-full text-white transition-colors" style={{ backgroundColor: '#B8977E' }}>
                 Commander au cabinet
               </a>
             </div>

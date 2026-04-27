@@ -7,11 +7,12 @@ import Model, { IExerciseData } from 'react-body-highlighter';
 export default function GiuseppeCostaAereSite() {
   const [lightbox, setLightbox] = React.useState<string | null>(null);
   const [mobileMenu, setMobileMenu] = React.useState(false);
+  const [treatmentModal, setTreatmentModal] = React.useState<{ title: string; desc: string } | null>(null);
   const officeCarouselRef = React.useRef<HTMLDivElement>(null);
 
   React.useEffect(() => {
     if (!lightbox) return;
-    const onKey = (e: KeyboardEvent) => { if (e.key === 'Escape') setLightbox(null); };
+    const onKey = (e: KeyboardEvent) => { if (e.key === 'Escape') { setLightbox(null); setTreatmentModal(null); } };
     document.addEventListener('keydown', onKey);
     return () => document.removeEventListener('keydown', onKey);
   }, [lightbox]);
@@ -168,13 +169,12 @@ export default function GiuseppeCostaAereSite() {
             { title: "Manipulations Vertébrales", desc: "Techniques manuelles pour le rétablissement de la mobilité articulaire." },
             { title: "Dry Needling", desc: "Traitement ciblé des points trigger pour relâcher les tensions musculaires." },
             { title: "Ondes de Choc", desc: "Technologie de pointe pour les tendinopathies, les calcifications et les inflammations." },
-            { title: "Massage Thérapeutique", desc: "Massage sportif, déconstructif et fonctionnel." },
             { title: "Traitement de Cervicalgie / Cervicobrachigie", desc: "" },
             { title: "Traitement de l'ATM", desc: "L'ATM (articulation temporo-mandibulaire) peut souffrir d'un déséquilibre musculaire, provoquant des douleurs au niveau de la mâchoire, des tempes, des sinus ou de la nuque. Je prends en charge ces dysfonctions avec des techniques manuelles ciblées." },
             { title: "Traitement de Maux de Tête", desc: "" },
             { title: "Massage Thérapeutique Remboursé (ASCA)", desc: "" },
           ].map((item, index) => (
-            <div key={index} className="rounded-3xl shadow-sm hover:shadow-xl transition-shadow flex flex-col overflow-hidden" style={{ backgroundColor: '#FAF9F6', border: '1px solid #E5E0DB' }}>
+            <div key={index} className="rounded-3xl shadow-sm hover:shadow-xl transition-shadow flex flex-col overflow-hidden cursor-pointer ring-2 ring-transparent hover:ring-[#B8977E]" style={{ backgroundColor: '#FAF9F6', border: '1px solid #E5E0DB' }} onClick={() => setTreatmentModal(item)}>
               <div className="w-full h-48 flex items-center justify-center text-sm" style={{ backgroundColor: '#EAE6E0', color: '#999' }}>Photo</div>
               <div className="p-8 flex flex-col items-start">
                 <h3 className="text-2xl font-bold mb-4 tracking-tight leading-tight" style={{ color: '#2C2C2C' }}>{item.title}</h3>
@@ -242,75 +242,96 @@ export default function GiuseppeCostaAereSite() {
         </div>
       </section>
 
-      {/* MASSAGE THÉRAPEUTIQUE SECTION */}
-      <section className="py-24 px-6 border-y" style={{ backgroundColor: '#FAF9F6', borderColor: '#E5E0DB' }}>
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-extrabold mb-8 tracking-tight font-serif" style={{ color: '#2C2C2C' }}>MASSAGES PROFESSIONNELS POUR VOTRE BIEN-ÊTRE</h2>
-          <div className="w-24 h-2 mb-10 rounded-full" style={{ backgroundColor: '#B8977E' }}></div>
-
-          <div className="grid md:grid-cols-2 gap-16">
-            <div>
-              <p className="text-lg leading-relaxed mb-6" style={{ color: '#555' }}>
-                Physiothérapeute qualifié avec un master en thérapie manuelle et un master en sport. J&apos;ai travaillé avec plusieurs équipes de football professionnel tels que Lausanne Sport, Servette FC, Vevey et l&apos;équipe nationale suisse.
-              </p>
-              <p className="leading-relaxed mb-4" style={{ color: '#555' }}>
-                Vous vous sentez tendu ? Vous avez des douleurs musculaires ou articulaires ?<br />
-                Vous cherchez un traitement ciblé pour améliorer votre bien-être ?
-              </p>
-              <p className="leading-relaxed mb-8" style={{ color: '#555' }}>
-                Je suis un physiothérapeute qualifié et je propose des massages personnalisés pour soulager les tensions, favoriser la relaxation et améliorer la fonctionnalité musculaire et articulaire.
-              </p>
-
-              <h3 className="text-xl font-bold mb-4 font-serif" style={{ color: '#2C2C2C' }}>Comment se déroule la séance ?</h3>
-              <p className="leading-relaxed mb-3" style={{ color: '#555' }}>
-                Chaque séance dure 45 minutes, réparties comme suit :
-              </p>
-              <ul className="space-y-2 ml-1 mb-8" style={{ color: '#555' }}>
-                <li className="flex items-start gap-2"><span style={{ color: '#B8977E' }}>•</span><span><strong style={{ color: '#2C2C2C' }}>1ère phase: Anamnèse personnalisée</strong>, pour identifier vos besoins spécifiques.</span></li>
-                <li className="flex items-start gap-2"><span style={{ color: '#B8977E' }}>•</span><span><strong style={{ color: '#2C2C2C' }}>2ième phase:  Traitement ciblé</strong>, avec des techniques spécialisées telles que :</span></li>
-                <li className="flex items-start gap-2 ml-6"><span style={{ color: '#B8977E' }}>•</span><span><strong style={{ color: '#2C2C2C' }}>Thérapie manuelle articulaire</strong> : pour améliorer la mobilité des articulations.</span></li>
-                <li className="flex items-start gap-2 ml-6"><span style={{ color: '#B8977E' }}>•</span><span><strong style={{ color: '#2C2C2C' }}>Techniques musculaires</strong> : comme le Strain-Counterstrain pour libérer les tensions profondes.</span></li>
-                <li className="flex items-start gap-2 ml-6"><span style={{ color: '#B8977E' }}>•</span><span><strong style={{ color: '#2C2C2C' }}>Mobilisation neurale</strong> : pour traiter les troubles liés au système nerveux périphérique.</span></li>
-              </ul>
-            </div>
-
-            <div>
-              <h3 className="text-xl font-bold mb-4 font-serif" style={{ color: '#2C2C2C' }}>Les bénéfices de mes traitements :</h3>
-              <ul className="space-y-1.5 mb-8" style={{ color: '#555' }}>
-                <li>✔ Réduction des douleurs musculaires et articulaires</li>
-                <li>✔ Amélioration de la flexibilité et de la mobilité</li>
-                <li>✔ Relaxation profonde et réduction du stress</li>
-                <li>✔ Bien-être général renforcé</li>
-              </ul>
-
-              <h3 className="text-xl font-bold mb-4 font-serif" style={{ color: '#2C2C2C' }}>Les techniques que j&apos;utilise :</h3>
-              <ul className="space-y-1.5 mb-8" style={{ color: '#555' }}>
-                <li className="flex items-start gap-2"><span style={{ color: '#B8977E' }}>•</span>Massage thérapeutique</li>
-                <li className="flex items-start gap-2"><span style={{ color: '#B8977E' }}>•</span>Massage relaxant</li>
-                <li className="flex items-start gap-2"><span style={{ color: '#B8977E' }}>•</span>Massage sportif</li>
-                <li className="flex items-start gap-2"><span style={{ color: '#B8977E' }}>•</span>Massage décontracturant</li>
-              </ul>
-
-              <div className="pt-2">
-                <p className="text-lg font-bold mb-2" style={{ color: '#2C2C2C' }}>📞 Réservez dès maintenant</p>
-                <p className="leading-relaxed" style={{ color: '#555' }}>
-                  Offrez-vous une heure pour votre bien-être.<br />
-                  Le tout accompagné d&apos;une musique personnalisée et adaptée à vos besoins du moment.
-                </p>
-                <p className="mt-3" style={{ color: '#555' }}>
-                  Contactez-moi dès aujourd&apos;hui pour prendre rendez-vous ou pour plus d&apos;informations.
-                </p>
-                <a href="tel:+41217842666" className="inline-block mt-4 px-8 py-3 rounded-full text-base font-bold transition-colors" style={{ backgroundColor: '#B8977E', color: '#fff' }}>
-                  021 784 26 66
-                </a>
-                <a href="https://www.onedoc.ch/en/physiotherapist/epalinges/pcyqz/giuseppe-costa" target="_blank" rel="noopener noreferrer" className="inline-block mt-3 ml-3 px-8 py-3 rounded-full text-base font-bold transition-colors border-2" style={{ borderColor: '#B8977E', color: '#B8977E' }}>
-                  Prendre RDV en ligne
-                </a>
-              </div>
+      {/* TREATMENT MODAL */}
+      {treatmentModal && (
+        <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/80 p-4" onClick={() => setTreatmentModal(null)}>
+          <div className="relative max-w-3xl w-full max-h-[90vh] overflow-y-auto rounded-3xl shadow-2xl" style={{ backgroundColor: '#FAF9F6' }} onClick={e => e.stopPropagation()}>
+            <button
+              onClick={() => setTreatmentModal(null)}
+              className="absolute top-4 right-4 z-10 bg-black/50 text-white rounded-full p-3 hover:bg-black/80 transition-colors"
+              aria-label="Fermer"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+            <div className="w-full h-56 flex items-center justify-center text-sm rounded-t-3xl" style={{ backgroundColor: '#EAE6E0', color: '#999' }}>Photo</div>
+            <div className="p-8 md:p-12">
+              {treatmentModal.title === 'Massage Th\u00e9rapeutique Rembours\u00e9 (ASCA)' ? (
+                <>
+                  <h2 className="text-2xl md:text-3xl font-extrabold mb-6 tracking-tight font-serif" style={{ color: '#2C2C2C' }}>MASSAGES PROFESSIONNELS POUR VOTRE BIEN-\u00caTRE</h2>
+                  <div className="w-20 h-1.5 mb-8 rounded-full" style={{ backgroundColor: '#B8977E' }}></div>
+                  <p className="text-lg leading-relaxed mb-6" style={{ color: '#555' }}>
+                    Physioth\u00e9rapeute qualifi\u00e9 avec un master en th\u00e9rapie manuelle et un master en sport. J&apos;ai travaill\u00e9 avec plusieurs \u00e9quipes de football professionnel tels que Lausanne Sport, Servette FC, Vevey et l&apos;\u00e9quipe nationale suisse.
+                  </p>
+                  <p className="leading-relaxed mb-4" style={{ color: '#555' }}>
+                    Vous vous sentez tendu ? Vous avez des douleurs musculaires ou articulaires ?<br />
+                    Vous cherchez un traitement cibl\u00e9 pour am\u00e9liorer votre bien-\u00eatre ?
+                  </p>
+                  <p className="leading-relaxed mb-8" style={{ color: '#555' }}>
+                    Je suis un physioth\u00e9rapeute qualifi\u00e9 et je propose des massages personnalis\u00e9s pour soulager les tensions, favoriser la relaxation et am\u00e9liorer la fonctionnalit\u00e9 musculaire et articulaire.
+                  </p>
+                  <h3 className="text-xl font-bold mb-4 font-serif" style={{ color: '#2C2C2C' }}>Comment se d\u00e9roule la s\u00e9ance ?</h3>
+                  <p className="leading-relaxed mb-3" style={{ color: '#555' }}>Chaque s\u00e9ance dure 45 minutes, r\u00e9parties comme suit :</p>
+                  <ul className="space-y-2 ml-1 mb-8" style={{ color: '#555' }}>
+                    <li className="flex items-start gap-2"><span style={{ color: '#B8977E' }}>\u2022</span><span><strong style={{ color: '#2C2C2C' }}>1\u00e8re phase : Anamn\u00e8se personnalis\u00e9e</strong>, pour identifier vos besoins sp\u00e9cifiques.</span></li>
+                    <li className="flex items-start gap-2"><span style={{ color: '#B8977E' }}>\u2022</span><span><strong style={{ color: '#2C2C2C' }}>2i\u00e8me phase : Traitement cibl\u00e9</strong>, avec des techniques sp\u00e9cialis\u00e9es telles que :</span></li>
+                    <li className="flex items-start gap-2 ml-6"><span style={{ color: '#B8977E' }}>\u2022</span><span><strong style={{ color: '#2C2C2C' }}>Th\u00e9rapie manuelle articulaire</strong> : pour am\u00e9liorer la mobilit\u00e9 des articulations.</span></li>
+                    <li className="flex items-start gap-2 ml-6"><span style={{ color: '#B8977E' }}>\u2022</span><span><strong style={{ color: '#2C2C2C' }}>Techniques musculaires</strong> : comme le Strain-Counterstrain pour lib\u00e9rer les tensions profondes.</span></li>
+                    <li className="flex items-start gap-2 ml-6"><span style={{ color: '#B8977E' }}>\u2022</span><span><strong style={{ color: '#2C2C2C' }}>Mobilisation neurale</strong> : pour traiter les troubles li\u00e9s au syst\u00e8me nerveux p\u00e9riph\u00e9rique.</span></li>
+                  </ul>
+                  <h3 className="text-xl font-bold mb-4 font-serif" style={{ color: '#2C2C2C' }}>Les b\u00e9n\u00e9fices de mes traitements :</h3>
+                  <ul className="space-y-1.5 mb-8" style={{ color: '#555' }}>
+                    <li>\u2714 R\u00e9duction des douleurs musculaires et articulaires</li>
+                    <li>\u2714 Am\u00e9lioration de la flexibilit\u00e9 et de la mobilit\u00e9</li>
+                    <li>\u2714 Relaxation profonde et r\u00e9duction du stress</li>
+                    <li>\u2714 Bien-\u00eatre g\u00e9n\u00e9ral renforc\u00e9</li>
+                  </ul>
+                  <h3 className="text-xl font-bold mb-4 font-serif" style={{ color: '#2C2C2C' }}>Les techniques que j&apos;utilise :</h3>
+                  <ul className="space-y-1.5 mb-8" style={{ color: '#555' }}>
+                    <li className="flex items-start gap-2"><span style={{ color: '#B8977E' }}>\u2022</span>Massage th\u00e9rapeutique</li>
+                    <li className="flex items-start gap-2"><span style={{ color: '#B8977E' }}>\u2022</span>Massage relaxant</li>
+                    <li className="flex items-start gap-2"><span style={{ color: '#B8977E' }}>\u2022</span>Massage sportif</li>
+                    <li className="flex items-start gap-2"><span style={{ color: '#B8977E' }}>\u2022</span>Massage d\u00e9contracturant</li>
+                  </ul>
+                  <div className="pt-2">
+                    <p className="text-lg font-bold mb-2" style={{ color: '#2C2C2C' }}>\ud83d\udcde R\u00e9servez d\u00e8s maintenant</p>
+                    <p className="leading-relaxed" style={{ color: '#555' }}>
+                      Offrez-vous une heure pour votre bien-\u00eatre.<br />
+                      Le tout accompagn\u00e9 d&apos;une musique personnalis\u00e9e et adapt\u00e9e \u00e0 vos besoins du moment.
+                    </p>
+                    <p className="mt-3" style={{ color: '#555' }}>
+                      Contactez-moi d\u00e8s aujourd&apos;hui pour prendre rendez-vous ou pour plus d&apos;informations.
+                    </p>
+                    <a href="tel:+41217842666" className="inline-block mt-4 px-8 py-3 rounded-full text-base font-bold transition-colors" style={{ backgroundColor: '#B8977E', color: '#fff' }}>
+                      021 784 26 66
+                    </a>
+                    <a href="https://www.onedoc.ch/en/physiotherapist/epalinges/pcyqz/giuseppe-costa" target="_blank" rel="noopener noreferrer" className="inline-block mt-3 ml-3 px-8 py-3 rounded-full text-base font-bold transition-colors border-2" style={{ borderColor: '#B8977E', color: '#B8977E' }}>
+                      Prendre RDV en ligne
+                    </a>
+                  </div>
+                </>
+              ) : (
+                <>
+                  <h2 className="text-2xl md:text-3xl font-extrabold mb-6 tracking-tight font-serif" style={{ color: '#2C2C2C' }}>{treatmentModal.title}</h2>
+                  <div className="w-20 h-1.5 mb-8 rounded-full" style={{ backgroundColor: '#B8977E' }}></div>
+                  {treatmentModal.desc && (
+                    <p className="text-lg leading-relaxed mb-8" style={{ color: '#555' }}>{treatmentModal.desc}</p>
+                  )}
+                  <div className="pt-2">
+                    <a href="tel:+41217842666" className="inline-block px-8 py-3 rounded-full text-base font-bold transition-colors" style={{ backgroundColor: '#B8977E', color: '#fff' }}>
+                      021 784 26 66
+                    </a>
+                    <a href="https://www.onedoc.ch/en/physiotherapist/epalinges/pcyqz/giuseppe-costa" target="_blank" rel="noopener noreferrer" className="inline-block mt-3 ml-3 px-8 py-3 rounded-full text-base font-bold transition-colors border-2" style={{ borderColor: '#B8977E', color: '#B8977E' }}>
+                      Prendre RDV en ligne
+                    </a>
+                  </div>
+                </>
+              )}
             </div>
           </div>
         </div>
-      </section>
+      )}
 
       {/* ACADEMIC EXCELLENCE SECTION */}
       <section className="py-20 px-6 border-y" style={{ backgroundColor: '#F3F0EB', borderColor: '#E5E0DB' }}>
