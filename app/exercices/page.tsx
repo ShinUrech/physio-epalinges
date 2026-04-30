@@ -97,6 +97,15 @@ const categories = [
       { label: 'Exercice 4', src: '/gallery/Elbow elastic/IMG_4722.MOV', title: 'Flexion du poignet (golf elbow)', desc: 'Avant-bras posé sur la cuisse, paume vers le haut, fléchissez le poignet contre l\'élastique. Renforce les fléchisseurs de poignet, indiqué dans la rééducation de l\'épicondylite médiale.' },
     ],
   },
+  {
+    title: 'Poignet — Élastiques de résistance',
+    description: 'Exercices de renforcement et mobilisation du poignet avec élastiques. Rééduque la pronation/supination, la flexion et la déviation radiale/ulnaire pour une récupération fonctionnelle complète.',
+    videos: [
+      { label: 'Exercice 1', src: '/gallery/Wrist elastic/wrist_1.mp4', title: 'Pronation de l\'avant-bras', desc: 'Assis, élastique tenu à deux mains, effectuez une rotation de l\'avant-bras vers l\'intérieur (pronation) contre la résistance de l\'élastique. Renforce le rond pronateur et carré pronateur, essentiels à la stabilité et aux gestes du quotidien.' },
+      { label: 'Exercice 2 — À venir' },
+      { label: 'Exercice 3 — À venir' },
+    ],
+  },
 ];
 
 function VideoGrid({ videos, onVideoClick }: { videos: VideoItem[]; onVideoClick: (v: VideoItem) => void }) {
@@ -125,68 +134,69 @@ function VideoGrid({ videos, onVideoClick }: { videos: VideoItem[]; onVideoClick
     scrollRef.current.scrollBy({ left: dir === 'right' ? amount : -amount, behavior: 'smooth' });
   };
 
-  if (videos.length <= 4) {
-    return (
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        {videos.map((vid, vi) => (
-          <button
-            key={vi}
-            onClick={() => onVideoClick(vid)}
-            className="rounded-xl aspect-video overflow-hidden relative flex items-center justify-center text-sm font-medium transition-colors cursor-pointer" style={{ backgroundColor: '#F3F0EB', border: '1px solid #E5E0DB', color: '#888' }}
-          >
-            {vid.src ? (
-              <video src={vid.src} className="w-full h-full object-cover pointer-events-none" muted playsInline preload="metadata" />
-            ) : (
-              vid.label
-            )}
-            <span className="absolute bottom-2 left-2 text-xs font-bold px-2 py-0.5 rounded-full" style={{ backgroundColor: '#B8977E', color: '#fff' }}>{vi + 1}</span>
-          </button>
-        ))}
-      </div>
-    );
-  }
+  // Shared card renderer
+  const renderCard = (vid: VideoItem, vi: number, extraClass = '') => (
+    <button
+      key={vi}
+      onClick={() => onVideoClick(vid)}
+      className={`rounded-xl aspect-video overflow-hidden relative flex items-center justify-center text-sm font-medium transition-colors cursor-pointer ${extraClass}`}
+      style={{ backgroundColor: '#F3F0EB', border: '1px solid #E5E0DB', color: '#888' }}
+    >
+      {vid.src ? (
+        <video src={vid.src} className="w-full h-full object-cover pointer-events-none" muted playsInline preload="metadata" />
+      ) : (
+        vid.label
+      )}
+      <span className="absolute bottom-2 left-2 text-xs font-bold px-2 py-0.5 rounded-full" style={{ backgroundColor: '#B8977E', color: '#fff' }}>{vi + 1}</span>
+    </button>
+  );
 
+  // Mobile: always a vertical 1-col grid (stacks downward)
+  // Desktop (md+): grid for ≤4 items, horizontal carousel for >4 items
   return (
-    <div className="relative">
-      {canScrollLeft && (
-        <button
-          onClick={() => scroll('left')}
-          className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-10 rounded-full p-2 shadow transition-colors" style={{ backgroundColor: '#FAF9F6', border: '1px solid #E5E0DB' }}
-          aria-label="Défiler à gauche"
-        >
-          <ChevronLeft className="w-5 h-5" style={{ color: '#B8977E' }} />
-        </button>
-      )}
-      <div
-        ref={scrollRef}
-        className="flex gap-4 overflow-x-auto scroll-smooth pb-2 snap-x snap-mandatory"
-        style={{ scrollbarWidth: 'none' }}
-      >
-        {videos.map((vid, vi) => (
-          <button
-            key={vi}
-            onClick={() => onVideoClick(vid)}
-            className="rounded-xl flex-none w-64 aspect-video overflow-hidden relative flex items-center justify-center text-sm font-medium transition-colors cursor-pointer snap-start" style={{ backgroundColor: '#F3F0EB', border: '1px solid #E5E0DB', color: '#888' }}
-          >
-            {vid.src ? (
-              <video src={vid.src} className="w-full h-full object-cover pointer-events-none" muted playsInline preload="metadata" />
-            ) : (
-              vid.label
-            )}
-            <span className="absolute bottom-2 left-2 text-xs font-bold px-2 py-0.5 rounded-full" style={{ backgroundColor: '#B8977E', color: '#fff' }}>{vi + 1}</span>
-          </button>
-        ))}
+    <>
+      {/* Mobile stacked list — hidden on md+ */}
+      <div className="grid grid-cols-1 gap-4 md:hidden">
+        {videos.map((vid, vi) => renderCard(vid, vi))}
       </div>
-      {canScrollRight && (
-        <button
-          onClick={() => scroll('right')}
-          className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-10 rounded-full p-2 shadow transition-colors" style={{ backgroundColor: '#FAF9F6', border: '1px solid #E5E0DB' }}
-          aria-label="Défiler à droite"
-        >
-          <ChevronRight className="w-5 h-5" style={{ color: '#B8977E' }} />
-        </button>
-      )}
-    </div>
+
+      {/* Desktop layout — hidden below md */}
+      <div className="hidden md:block">
+        {videos.length <= 4 ? (
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+            {videos.map((vid, vi) => renderCard(vid, vi))}
+          </div>
+        ) : (
+          <div className="relative">
+            {canScrollLeft && (
+              <button
+                onClick={() => scroll('left')}
+                className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-10 rounded-full p-2 shadow transition-colors" style={{ backgroundColor: '#FAF9F6', border: '1px solid #E5E0DB' }}
+                aria-label="Défiler à gauche"
+              >
+                <ChevronLeft className="w-5 h-5" style={{ color: '#B8977E' }} />
+              </button>
+            )}
+            <div
+              ref={scrollRef}
+              className="flex gap-4 overflow-x-auto scroll-smooth pb-2 snap-x snap-mandatory"
+              style={{ scrollbarWidth: 'none' }}
+            >
+              {videos.map((vid, vi) => renderCard(vid, vi, 'flex-none w-64 snap-start'))}
+            </div>
+            {canScrollRight && (
+              <button
+                onClick={() => scroll('right')}
+                className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-10 rounded-full p-2 shadow transition-colors" style={{ backgroundColor: '#FAF9F6', border: '1px solid #E5E0DB' }}
+                aria-label="Défiler à droite"
+              >
+                <ChevronRight className="w-5 h-5" style={{ color: '#B8977E' }} />
+              </button>
+            )}
+          </div>
+        )}
+      </div>
+    </>
   );
 }
 
@@ -243,34 +253,70 @@ export default function ExercicesPage() {
 
       <div className="max-w-5xl mx-auto px-6 py-12 space-y-10">
 
-        {/* ELASTIC BANDS PROMO BOX */}
-        <div className="rounded-2xl overflow-hidden shadow-md flex flex-col sm:flex-row" style={{ border: '1px solid #E5E0DB', backgroundColor: '#F3F0EB' }}>
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src="/gallery/office_3.jpg"
-            alt="Élastiques de résistance – Cabinet Physio-Epalinges"
-            className="w-full sm:w-48 h-40 sm:h-auto object-cover shrink-0"
-          />
-          <div className="px-7 py-5 flex flex-col justify-center gap-3">
-            <div className="flex items-center gap-2">
-              <ShoppingBag className="w-5 h-5 shrink-0" style={{ color: '#555' }} />
-              <h2 className="text-xl font-extrabold tracking-tight" style={{ color: '#2C2C2C' }}>Élastiques de résistance</h2>
-              <span className="ml-auto text-2xl font-extrabold shrink-0 font-serif" style={{ color: '#2C2C2C' }}>CHF 25.–</span>
+        {/* ELASTIC BANDS CATALOG */}
+        <div className="rounded-2xl overflow-hidden shadow-md" style={{ border: '1px solid #E5E0DB', backgroundColor: '#F3F0EB' }}>
+          {/* Header */}
+          <div className="px-6 pt-6 pb-4 flex items-center gap-3" style={{ borderBottom: '1px solid #E5E0DB' }}>
+            <ShoppingBag className="w-5 h-5 shrink-0" style={{ color: '#B8977E' }} />
+            <h2 className="text-xl font-extrabold tracking-tight font-serif" style={{ color: '#2C2C2C' }}>Élastiques de résistance</h2>
+          </div>
+
+          {/* Products grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2" style={{ borderBottom: '1px solid #E5E0DB' }}>
+            {/* Kit 5 */}
+            <div className="flex flex-row" style={{ borderBottom: '1px solid #E5E0DB' }} >
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/gallery/office_3.jpg" alt="Kit 5 élastiques" className="w-28 sm:w-32 object-cover shrink-0 self-stretch" style={{ borderRight: '1px solid #E5E0DB' }} />
+              <div className="px-5 py-4 flex flex-col gap-2 flex-1">
+                <div className="flex items-baseline justify-between gap-2">
+                  <span className="font-extrabold text-base" style={{ color: '#2C2C2C' }}>Kit 5 élastiques</span>
+                  <span className="text-xl font-extrabold font-serif shrink-0" style={{ color: '#2C2C2C' }}>CHF 25.–</span>
+                </div>
+                <p className="text-xs leading-relaxed" style={{ color: '#777' }}>5 niveaux de résistance croissante, du débutant à l'avancé.</p>
+                <div className="flex flex-wrap gap-1.5 mt-1 text-xs font-semibold">
+                  <span className="px-2 py-0.5 rounded-full bg-yellow-200 text-yellow-800">Extra-léger</span>
+                  <span className="px-2 py-0.5 rounded-full bg-red-200 text-red-800">Léger</span>
+                  <span className="px-2 py-0.5 rounded-full bg-green-200 text-green-800">Moyen</span>
+                  <span className="px-2 py-0.5 rounded-full bg-blue-200 text-blue-800">Fort</span>
+                  <span className="px-2 py-0.5 rounded-full text-white" style={{ backgroundColor: '#2C2C2C' }}>Très fort</span>
+                </div>
+              </div>
             </div>
-            <p className="text-sm leading-relaxed" style={{ color: '#666' }}>
-              Kit de <strong style={{ color: '#2C2C2C' }}>5 élastiques à résistance croissante</strong> — disponibles au cabinet.
-              Idéaux pour réaliser vos exercices à domicile, du niveau débutant au niveau avancé.
-            </p>
-            <div className="flex flex-wrap gap-2 text-xs font-semibold">
-              <span className="px-3 py-1 rounded-full bg-yellow-200 text-yellow-800">Extra-léger</span>
-              <span className="px-3 py-1 rounded-full bg-red-200 text-red-800">Léger</span>
-              <span className="px-3 py-1 rounded-full bg-green-200 text-green-800">Moyen</span>
-              <span className="px-3 py-1 rounded-full bg-blue-200 text-blue-800">Fort</span>
-              <span className="px-3 py-1 rounded-full text-white" style={{ backgroundColor: '#2C2C2C' }}>Très fort</span>
-              <a href="https://wa.me/41768240387" target="_blank" rel="noopener noreferrer" className="ml-auto px-4 py-1 rounded-full text-white transition-colors" style={{ backgroundColor: '#B8977E' }}>
-                Commander au cabinet
-              </a>
+
+            {/* GC à la pièce */}
+            <div className="flex flex-row">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/gallery/elastics_product.jpeg" alt="Élastiques GC" className="w-28 sm:w-32 object-cover shrink-0 self-stretch" style={{ borderRight: '1px solid #E5E0DB' }} />
+              <div className="px-5 py-4 flex flex-col gap-2 flex-1">
+                <div className="flex items-baseline justify-between gap-2">
+                  <span className="font-extrabold text-base" style={{ color: '#2C2C2C' }}>Élastiques GC</span>
+                  <div className="text-right shrink-0">
+                    <div className="text-xl font-extrabold font-serif leading-none" style={{ color: '#2C2C2C' }}>CHF 5.–</div>
+                    <div className="text-xs font-semibold" style={{ color: '#B8977E' }}>4 pour CHF 15.–</div>
+                  </div>
+                </div>
+                <p className="text-xs leading-relaxed" style={{ color: '#777' }}>Vendus à la pièce ou par lot. 3 niveaux disponibles.</p>
+                <div className="flex flex-wrap gap-1.5 mt-1 text-xs font-semibold">
+                  <span className="px-2 py-0.5 rounded-full bg-yellow-200 text-yellow-800">Léger</span>
+                  <span className="px-2 py-0.5 rounded-full bg-red-200 text-red-800">Moyen</span>
+                  <span className="px-2 py-0.5 rounded-full text-white" style={{ backgroundColor: '#2C2C2C' }}>Fort</span>
+                </div>
+              </div>
             </div>
+          </div>
+
+          {/* Single CTA */}
+          <div className="px-6 py-5">
+            <a
+              href="https://wa.me/41768240387"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center justify-center gap-3 w-full py-4 px-8 rounded-xl text-base font-bold transition-colors text-center"
+              style={{ backgroundColor: '#B8977E', color: '#fff' }}
+            >
+              <ShoppingBag className="w-5 h-5 shrink-0" />
+              <span>Commander au cabinet via WhatsApp</span>
+            </a>
           </div>
         </div>
 
