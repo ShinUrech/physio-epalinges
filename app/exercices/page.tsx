@@ -81,10 +81,7 @@ const categories = [
     title: 'Cheville — Élastiques de résistance',
     description: 'Exercices de renforcement de la cheville avec élastiques. Améliore la proprioception, renforce les muscles péroniers et prévient les entorses.',
     videos: [
-      { label: 'Exercice 1 — À venir' },
-      { label: 'Exercice 2 — À venir' },
-      { label: 'Exercice 3 — À venir' },
-      { label: 'Exercice 4 — À venir' },
+      { label: 'Exercice 1', src: '/gallery/Ankle elastic/ankle_1.mp4', title: 'Éversion de la cheville', desc: 'Assis, élastique autour de l\'avant-pied, tournez le pied vers l\'extérieur contre la résistance de l\'élastique. Renforce les muscles péroniers (court et long fibulaire), stabilisateurs latéraux de la cheville, essentiels dans la prévention et la rééducation des entorses.' },
     ],
   },
   {
@@ -102,8 +99,6 @@ const categories = [
     description: 'Exercices de renforcement et mobilisation du poignet avec élastiques. Rééduque la pronation/supination, la flexion et la déviation radiale/ulnaire pour une récupération fonctionnelle complète.',
     videos: [
       { label: 'Exercice 1', src: '/gallery/Wrist elastic/wrist_1.mp4', title: 'Pronation de l\'avant-bras', desc: 'Assis, élastique tenu à deux mains, effectuez une rotation de l\'avant-bras vers l\'intérieur (pronation) contre la résistance de l\'élastique. Renforce le rond pronateur et carré pronateur, essentiels à la stabilité et aux gestes du quotidien.' },
-      { label: 'Exercice 2 — À venir' },
-      { label: 'Exercice 3 — À venir' },
     ],
   },
 ];
