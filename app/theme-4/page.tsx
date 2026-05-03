@@ -228,7 +228,6 @@ export default function Theme4Page() {
             { type: 'video', src: '/gallery/physio_2.mp4',  alt: 'Exercice de rééducation' },
             { type: 'image', src: '/gallery/physio_4.jpg',  alt: 'Traitement – genou' },
             { type: 'video', src: '/gallery/physio_3.mp4',  alt: 'Entraînement fonctionnel' },
-            { type: 'image', src: '/gallery/physio_5.jpg',  alt: 'Traitement – épaule' },
             { type: 'video', src: '/gallery/physio_8.mp4',  alt: 'Physiothérapie sportive' },
             { type: 'image', src: '/gallery/physio_6.jpg',  alt: 'Rééducation sportive' },
             { type: 'video', src: '/gallery/physio_9.mp4',  alt: 'Récupération musculaire' },
@@ -272,34 +271,34 @@ export default function Theme4Page() {
           <div className="w-24 h-1 mb-12 rounded-full" style={{ backgroundColor: '#B8977E' }}></div>
           <div className="grid md:grid-cols-2 gap-x-16 gap-y-6 font-semibold leading-relaxed text-xl" style={{ color: '#3A3A3A' }}>
             <p className="flex items-start"><ArrowRight className="w-6 h-6 mr-4 shrink-0 mt-1.5" style={{ color: '#B8977E' }} />
-              <span>Diplôme de Physiothérapie — Università di Catania (110/110)</span>
+              <span>Diplôme de Physiothérapie Università di Catania (110/110)</span>
             </p>
             <p className="flex items-start"><ArrowRight className="w-6 h-6 mr-4 shrink-0 mt-1.5" style={{ color: '#B8977E' }} />
-              <span>Master en Physiothérapie du Sport — Università di Pisa</span>
+              <span>Master en Physiothérapie du Sport Università di Pisa</span>
             </p>
             <p className="flex items-start"><ArrowRight className="w-6 h-6 mr-4 shrink-0 mt-1.5" style={{ color: '#B8977E' }} />
-              <span>Master en Thérapie manuelle &amp; Exercice thérapeutique — Université de Bologne</span>
+              <span>Master en Thérapie manuelle &amp; Exercice thérapeutique Université de Bologne</span>
             </p>
             <p className="flex items-start"><ArrowRight className="w-6 h-6 mr-4 shrink-0 mt-1.5" style={{ color: '#B8977E' }} />
-              <span>Titre OMPT (Orthopaedic Manipulative Physical Therapist) — IFOMPT</span>
+              <span>Titre OMPT (Orthopaedic Manipulative Physical Therapist) IFOMPT</span>
             </p>
             <p className="flex items-start"><ArrowRight className="w-6 h-6 mr-4 shrink-0 mt-1.5" style={{ color: '#B8977E' }} />
-              <span>Professeur de pathokinésiologie — Université Ludes (Lugano)</span>
+              <span>Professeur de pathokinésiologie Université Ludes (Lugano)</span>
             </p>
             <p className="flex items-start"><ArrowRight className="w-6 h-6 mr-4 shrink-0 mt-1.5" style={{ color: '#B8977E' }} />
-              <span>Physiothérapeute — Équipe suisse de football espoirs</span>
+              <span>Physiothérapeute Équipe suisse de football espoirs</span>
             </p>
             <p className="flex items-start"><ArrowRight className="w-6 h-6 mr-4 shrink-0 mt-1.5" style={{ color: '#B8977E' }} />
-              <span>Chef physiothérapie — Neuchâtel Xamax</span>
+              <span>Chef physiothérapie Neuchâtel Xamax</span>
             </p>
             <p className="flex items-start"><ArrowRight className="w-6 h-6 mr-4 shrink-0 mt-1.5" style={{ color: '#B8977E' }} />
-              <span>Physiothérapeute sportif — Lausanne Sport M21</span>
+              <span>Physiothérapeute sportif Lausanne Sport M21</span>
             </p>
             <p className="flex items-start"><ArrowRight className="w-6 h-6 mr-4 shrink-0 mt-1.5" style={{ color: '#B8977E' }} />
-              <span>Physiothérapeute — Calcio Catania S.p.A.</span>
+              <span>Physiothérapeute Calcio Catania S.p.A.</span>
             </p>
             <p className="flex items-start"><ArrowRight className="w-6 h-6 mr-4 shrink-0 mt-1.5" style={{ color: '#B8977E' }} />
-              <span>Erasmus Plus — Hôpital d&apos;orthopédie et réhabilitation, Poznan (Pologne)</span>
+              <span>Erasmus Plus Hôpital d&apos;orthopédie et réhabilitation, Poznan (Pologne)</span>
             </p>
           </div>
         </div>

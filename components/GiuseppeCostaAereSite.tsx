@@ -119,7 +119,7 @@ export default function GiuseppeCostaAereSite() {
             <h2 className="text-3xl md:text-5xl font-extrabold mb-8 tracking-tight font-serif" style={{ color: '#2C2C2C' }}>Expertise au plus haut niveau</h2>
             <div className="w-24 h-2 mb-10 rounded-full" style={{ backgroundColor: '#B8977E' }}></div>
             <p className="text-xl leading-relaxed mb-8 font-medium" style={{ color: '#555' }}>
-              Physiothérapeute OMPT et SPT avec plus de 11 ans d&apos;expérience, j&apos;allie thérapie manuelle orthopédique, rééducation sportive et exercice thérapeutique. Formé à l&apos;Université de Bologne et de Pise, j&apos;ai exercé auprès d&apos;athlètes professionnels au Calcio Catania, au Lausanne Sport M21, au Neuchâtel Xamax et avec l&apos;équipe suisse de football espoirs. Ma pratique intègre les techniques Maitland, Mulligan et McKenzie, le dry needling, la manipulation myofasciale Stecco, ainsi que les ondes de choc — pour un retour au sport optimal et une prise en charge complète des pathologies musculosquelettiques.
+              Physiothérapeute OMPT et SPT avec plus de 11 ans d&apos;expérience, je combine thérapie manuelle orthopédique, rééducation sportive et exercice thérapeutique. Formé à l&apos;Université de Bologne et de Pise, j&apos;ai exercé auprès d&apos;athlètes professionnels au Calcio Catania, au Lausanne Sport M21, au Neuchâtel Xamax et avec l&apos;équipe suisse de football espoirs. Ma pratique intègre les techniques Maitland, Mulligan et McKenzie, le dry needling, la manipulation myofasciale Stecco, ainsi que les ondes de choc — pour un retour au sport optimal et une prise en charge complète des pathologies musculosquelettiques.
             </p>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-10 gap-y-5 font-semibold text-lg" style={{ color: '#2C2C2C' }}>
               <p className="flex items-center"><ArrowRight className="w-5 h-5 mr-3.5" style={{ color: '#B8977E' }} />Thérapie manuelle OMPT</p>
@@ -201,7 +201,7 @@ export default function GiuseppeCostaAereSite() {
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-12 text-center">
           {[
             {
-              title: "Dos",
+              title: "Colonne vertébrale",
               desc: "Prise en charge des lombalgies, hernies discales, scolioses, douleurs dorsales chroniques et cervicalgies.",
               muscles: ['trapezius', 'upper-back', 'lower-back'],
               crop: { marginTop: -15 },
@@ -347,34 +347,34 @@ export default function GiuseppeCostaAereSite() {
           <div className="w-24 h-2 mb-12 rounded-full" style={{ backgroundColor: '#B8977E' }}></div>
           <div className="grid md:grid-cols-2 gap-x-16 gap-y-6 font-semibold leading-relaxed text-xl" style={{ color: '#2C2C2C' }}>
             <p className="flex items-start"><ArrowRight className="w-6 h-6 mr-4 shrink-0 mt-1.5" style={{ color: '#B8977E' }} />
-              <span>Diplôme de Physiothérapie — Università di Catania (110/110)</span>
+              <span>Diplôme de Physiothérapie Università di Catania (110/110)</span>
             </p>
             <p className="flex items-start"><ArrowRight className="w-6 h-6 mr-4 shrink-0 mt-1.5" style={{ color: '#B8977E' }} />
-              <span>Master en Physiothérapie du Sport — Università di Pisa</span>
+              <span>Master en Physiothérapie du Sport Università di Pisa</span>
             </p>
             <p className="flex items-start"><ArrowRight className="w-6 h-6 mr-4 shrink-0 mt-1.5" style={{ color: '#B8977E' }} />
-              <span>Master en Thérapie manuelle &amp; Exercice thérapeutique — Université de Bologne</span>
+              <span>Master en Thérapie manuelle &amp; Exercice thérapeutique Université de Bologne</span>
             </p>
             <p className="flex items-start"><ArrowRight className="w-6 h-6 mr-4 shrink-0 mt-1.5" style={{ color: '#B8977E' }} />
-              <span>Titre OMPT (Orthopaedic Manipulative Physical Therapist) — IFOMPT</span>
+              <span>Titre OMPT (Orthopaedic Manipulative Physical Therapist) IFOMPT</span>
             </p>
             <p className="flex items-start"><ArrowRight className="w-6 h-6 mr-4 shrink-0 mt-1.5" style={{ color: '#B8977E' }} />
-              <span>Professeur de pathokinésiologie — Université Ludes (Lugano)</span>
+              <span>Professeur de pathokinésiologie Université Ludes (Lugano)</span>
             </p>
             <p className="flex items-start"><ArrowRight className="w-6 h-6 mr-4 shrink-0 mt-1.5" style={{ color: '#B8977E' }} />
-              <span>Physiothérapeute — Équipe suisse de football espoirs</span>
+              <span>Physiothérapeute Équipe suisse de football espoirs</span>
             </p>
             <p className="flex items-start"><ArrowRight className="w-6 h-6 mr-4 shrink-0 mt-1.5" style={{ color: '#B8977E' }} />
-              <span>Chef physiothérapie — Neuchâtel Xamax</span>
+              <span>Chef physiothérapie Neuchâtel Xamax</span>
             </p>
             <p className="flex items-start"><ArrowRight className="w-6 h-6 mr-4 shrink-0 mt-1.5" style={{ color: '#B8977E' }} />
-              <span>Physiothérapeute sportif — Lausanne Sport M21</span>
+              <span>Physiothérapeute sportif Lausanne Sport M21</span>
             </p>
             <p className="flex items-start"><ArrowRight className="w-6 h-6 mr-4 shrink-0 mt-1.5" style={{ color: '#B8977E' }} />
-              <span>Physiothérapeute — Calcio Catania S.p.A.</span>
+              <span>Physiothérapeute Calcio Catania S.p.A.</span>
             </p>
             <p className="flex items-start"><ArrowRight className="w-6 h-6 mr-4 shrink-0 mt-1.5" style={{ color: '#B8977E' }} />
-              <span>Erasmus Plus — Hôpital d&apos;orthopédie et réhabilitation, Poznan (Pologne)</span>
+              <span>Erasmus Plus Hôpital d&apos;orthopédie et réhabilitation, Poznan (Pologne)</span>
             </p>
           </div>
         </div>
@@ -394,7 +394,6 @@ export default function GiuseppeCostaAereSite() {
             { type: 'video', src: '/gallery/physio_2.mp4',  alt: 'Exercice de rééducation' },
             { type: 'image', src: '/gallery/physio_4.jpg',  alt: 'Traitement – genou' },
             { type: 'video', src: '/gallery/physio_3.mp4',  alt: 'Entraînement fonctionnel' },
-            { type: 'image', src: '/gallery/physio_5.jpg',  alt: 'Traitement – épaule' },
             { type: 'video', src: '/gallery/physio_8.mp4',  alt: 'Physiothérapie sportive' },
             { type: 'image', src: '/gallery/physio_6.jpg',  alt: 'Rééducation sportive' },
             { type: 'video', src: '/gallery/physio_9.mp4',  alt: 'Récupération musculaire' },
