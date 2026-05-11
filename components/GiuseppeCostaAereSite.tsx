@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import Image from 'next/image';
 import { Phone, MapPin, Clock, ArrowRight } from 'lucide-react';
 import Model, { IExerciseData } from 'react-body-highlighter';
 
@@ -176,7 +177,9 @@ export default function GiuseppeCostaAereSite() {
 
       {/* HERO SECTION (Très aérée) */}
       <header className="relative text-white" style={{ backgroundColor: '#1E1E1E' }}>
-        <div className="absolute inset-0 bg-[url('/hero-bg.jpg')] bg-cover bg-center opacity-25 mix-blend-overlay"></div>
+        <div className="absolute inset-0 overflow-hidden opacity-25 mix-blend-overlay">
+          <Image src="/hero-bg.jpg" alt="" fill className="object-cover object-center" priority />
+        </div>
         <div className="relative max-w-7xl mx-auto px-6 py-32 md:py-48 flex flex-col items-center text-center">
           <h1 className="text-6xl md:text-7xl font-extrabold leading-tight mb-6 max-w-4xl tracking-tight font-serif">
             Giuseppe Costa
@@ -221,10 +224,12 @@ export default function GiuseppeCostaAereSite() {
               <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5 text-slate-700" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" /></svg>
             </button>
             <div ref={officeCarouselRef} className="flex gap-3 h-full overflow-x-auto rounded-3xl" style={{ scrollbarWidth: 'none' } as React.CSSProperties}>
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/gallery/office_2.jpg" alt="Cabinet – vue générale" onClick={() => setLightbox('/gallery/office_2.jpg')} className="flex-shrink-0 w-[240px] md:w-[300px] h-full object-cover rounded-3xl shadow-md border border-slate-200 cursor-zoom-in hover:opacity-90 transition-opacity" />
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/gallery/office_3.jpg" alt="Cabinet – équipements" onClick={() => setLightbox('/gallery/office_3.jpg')} className="flex-shrink-0 w-[240px] md:w-[300px] h-full object-cover rounded-3xl shadow-md border border-slate-200 cursor-zoom-in hover:opacity-90 transition-opacity" />
+              <div onClick={() => setLightbox('/gallery/office_2.jpg')} className="relative flex-shrink-0 w-[240px] md:w-[300px] h-full rounded-3xl overflow-hidden shadow-md border border-slate-200 cursor-zoom-in hover:opacity-90 transition-opacity">
+                <Image src="/gallery/office_2.jpg" alt="Cabinet – vue générale" fill className="object-cover" sizes="300px" />
+              </div>
+              <div onClick={() => setLightbox('/gallery/office_3.jpg')} className="relative flex-shrink-0 w-[240px] md:w-[300px] h-full rounded-3xl overflow-hidden shadow-md border border-slate-200 cursor-zoom-in hover:opacity-90 transition-opacity">
+                <Image src="/gallery/office_3.jpg" alt="Cabinet – équipements" fill className="object-cover" sizes="300px" />
+              </div>
               <div className="flex-shrink-0 w-[260px] md:w-[340px] h-full rounded-3xl overflow-hidden shadow-md border border-slate-200">
                 <video src="/gallery/office_1.mp4" preload="metadata" muted playsInline className="w-full h-full object-cover" aria-label="Visite du cabinet" onMouseEnter={e => (e.currentTarget as HTMLVideoElement).setAttribute('controls', '')} onMouseLeave={e => { const v = e.currentTarget as HTMLVideoElement; if (v.paused) v.removeAttribute('controls'); }} onPause={e => (e.currentTarget as HTMLVideoElement).removeAttribute('controls')} />
               </div>
@@ -473,28 +478,30 @@ export default function GiuseppeCostaAereSite() {
         {/* Mixed masonry – photos and videos interleaved, natural aspect ratios */}
         <div className="max-w-7xl mx-auto columns-1 sm:columns-2 lg:columns-3 gap-6 space-y-6">
           {([
-            { type: 'image', src: '/gallery/physio_1.jpg',  alt: 'Séance de physiothérapie' },
+            { type: 'image', src: '/gallery/physio_1.jpg',  alt: 'Séance de physiothérapie', width: 1440, height: 1800 },
             { type: 'video', src: '/gallery/physio_2.mp4',  alt: 'Exercice de rééducation' },
-            { type: 'image', src: '/gallery/physio_4.jpg',  alt: 'Traitement – genou' },
+            { type: 'image', src: '/gallery/physio_4.jpg',  alt: 'Traitement – genou', width: 1800, height: 1202 },
             { type: 'video', src: '/gallery/physio_3.mp4',  alt: 'Entraînement fonctionnel' },
             { type: 'video', src: '/gallery/physio_8.mp4',  alt: 'Physiothérapie sportive' },
-            { type: 'image', src: '/gallery/physio_6.jpg',  alt: 'Rééducation sportive' },
+            { type: 'image', src: '/gallery/physio_6.jpg',  alt: 'Rééducation sportive', width: 1152, height: 2048 },
             { type: 'video', src: '/gallery/physio_9.mp4',  alt: 'Récupération musculaire' },
-            { type: 'image', src: '/gallery/physio_7.jpg',  alt: 'Thérapie manuelle' },
+            { type: 'image', src: '/gallery/physio_7.jpg',  alt: 'Thérapie manuelle', width: 1180, height: 786 },
             { type: 'video', src: '/gallery/physio_10.mp4', alt: 'Mobilisation articulaire' },
             { type: 'video', src: '/gallery/physio_11.mp4', alt: 'Renforcement spécifique' },
             { type: 'video', src: '/gallery/physio_12.mp4', alt: 'Techniques manuelles' },
             { type: 'video', src: '/gallery/physio_16.mp4', alt: 'Rééducation en profondeur' },
             { type: 'video', src: '/gallery/physio_17.mp4', alt: 'Physiothérapie du sport' },
-          ] as { type: string; src: string; alt: string }[]).map((item, i) => (
+          ] as { type: string; src: string; alt: string; width?: number; height?: number }[]).map((item, i) => (
             <div key={i} className="break-inside-avoid rounded-2xl overflow-hidden shadow-sm" style={{ border: '1px solid #E5E0DB' }}>
               {item.type === 'image' ? (
                 <div className="relative cursor-zoom-in group" onClick={() => setLightbox(item.src)}>
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
+                  <Image
                     src={item.src}
                     alt={item.alt}
+                    width={item.width}
+                    height={item.height}
                     className="w-full h-auto object-cover transition-opacity group-hover:opacity-90"
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                   />
                   <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" style={{ backgroundColor: 'rgba(0,0,0,0.25)' }}>
                     <svg xmlns="http://www.w3.org/2000/svg" className="w-10 h-10 text-white drop-shadow-lg" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-4.35-4.35M17 11A6 6 0 1 1 5 11a6 6 0 0 1 12 0zm0 0l.01.01" /></svg>
@@ -525,8 +532,7 @@ export default function GiuseppeCostaAereSite() {
         </div>
         <div className="max-w-xs mx-auto rounded-3xl overflow-hidden shadow-2xl flex flex-col items-center py-10 px-8" style={{ backgroundColor: '#1E1E1E' }}>
           <div className="w-48 overflow-hidden rounded-2xl mb-6" style={{ backgroundColor: '#333' }}>
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/gallery/giuseppe_portrait.jpeg" alt="Giuseppe Costa" className="w-full h-auto object-cover object-top" />
+            <Image src="/gallery/giuseppe_portrait.jpeg" alt="Giuseppe Costa" width={786} height={1203} className="w-full h-auto object-cover object-top" sizes="192px" />
           </div>
           <h3 className="text-white text-2xl font-extrabold font-serif tracking-tight mb-1">Giuseppe Costa</h3>
           <p className="text-sm font-medium mb-6" style={{ color: '#999' }}>Physiothérapeute</p>
