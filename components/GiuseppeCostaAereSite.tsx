@@ -525,7 +525,7 @@ export default function GiuseppeCostaAereSite() {
       </section>
 
       {/* GOOGLE REVIEWS SECTION */}
-      <section className="py-24 px-6" style={{ backgroundColor: '#1E1E1E' }}>
+      <section className="pt-24 pb-8 px-6" style={{ backgroundColor: '#1E1E1E' }}>
         <div className="max-w-7xl mx-auto">
           {/* Header */}
           <div className="text-center mb-14">
@@ -561,48 +561,56 @@ export default function GiuseppeCostaAereSite() {
             {([
               {
                 name: 'Jenni G',
+                color: '#4A90D9',
                 date: 'il y a 3 mois',
                 text: "Un physio exceptionnel\u00a0! En tant que cavali\u00e8re ayant mal au dos, j\u2019avais des douleurs bien sp\u00e9cifiques li\u00e9es \u00e0 l\u2019\u00e9quitation. Il a su les comprendre, les traiter efficacement et m\u2019accompagner avec beaucoup de professionnalisme et d\u2019\u00e9coute. Gr\u00e2ce \u00e0 son travail, j\u2019ai retrouv\u00e9 du confort \u00e0 cheval comme au quotidien. Je recommande les yeux ferm\u00e9s\u00a0!",
               },
               {
                 name: 'Inge Appermont',
+                color: '#7B68C8',
                 date: 'il y a 9 mois',
                 text: "Je recommande vivement Giuseppe Costa. Il est tr\u00e8s professionnel, \u00e0 l\u2019\u00e9coute et sait s\u2019adapter \u00e0 mes besoins sp\u00e9cifiques. Ses s\u00e9ances sont efficaces et bien expliqu\u00e9es. Gr\u00e2ce \u00e0 lui, j\u2019ai retrouv\u00e9 une meilleure mobilit\u00e9 et une r\u00e9duction de la douleur. Merci pour son excellent travail.",
               },
               {
                 name: 'Magui Feijoo',
+                color: '#E07B5A',
                 date: 'il y a 9 mois',
                 text: "Giuseppe m\u2019a beaucoup aid\u00e9 pour mes probl\u00e8mes de dos et cervicales. Je le remercie sp\u00e9cialement pour son aide pr\u00e9cieuse lors de mon blocage de la nuque\u00a0: il s\u2019est montr\u00e9 disponible et m\u2019a d\u00e9bloqu\u00e9 rapidement. Je le consulte d\u00e8s que j\u2019ai un blocage car je sais qu\u2019il saura faire le n\u00e9cessaire.",
               },
               {
                 name: 'Pasquale Ferrantino',
+                color: '#4CAF82',
                 date: 'il y a un an',
                 text: "Giuseppe est un expert dans son domaine et sp\u00e9cialement de la r\u00e9habilitation en lien avec le sport. Ayant subi une importante blessure \u00e0 la cheville, il m\u2019a aid\u00e9 et motiv\u00e9 gr\u00e2ce \u00e0 sa patience, son savoir-faire et son approche multidisciplinaire. Je le recommande vivement\u00a0!",
               },
               {
                 name: 'Fabrizio Stella',
+                color: '#C07BC5',
                 date: 'il y a un an',
                 text: "Giuseppe helped me after I dislocated my shoulder and needed support for rehabilitation. He is calm, balanced and immediately put me at ease. The rehabilitation strategy was very effective and allowed me to recover mobility quite quickly. I highly recommend him.",
               },
               {
                 name: 'Andrea Giacalone',
+                color: '#5BA4CF',
                 date: 'il y a 9 mois',
                 text: "Giuseppe m\u2019a suivi pour une cervicalgie. D\u00e8s le d\u00e9but, je me suis senti \u00e0 l\u2019aise. C\u2019est un kin\u00e9sith\u00e9rapeute professionnel, comp\u00e9tent et passion\u00e9 par son travail. Je le recommande vivement.",
               },
               {
                 name: 'B Pellier',
+                color: '#D4875A',
                 date: 'il y a 8 mois',
                 text: "Excellent Physioth\u00e9rapeute exp\u00e9riment\u00e9 et \u00e0 l\u2019\u00e9coute des questions des patients. Ses conseils sont pr\u00e9cis et personnalis\u00e9s. Je recommande fortement Mr Giuseppe Costa.",
               },
               {
                 name: 'Voncicia Romela Ngoma',
+                color: '#56A899',
                 date: 'il y a 2 mois',
                 text: "Giuseppe Costa m\u2019a suivi pendant 3 mois suite \u00e0 une entorse \u00e0 la cheville. D\u00e8s la premi\u00e8re s\u00e9ance, je me suis sentie \u00e0 l\u2019aise\u00a0; il donne des conseils et explique bien les exercices. Cela m\u2019a beaucoup aid\u00e9. Je recommande fortement ce physio\u00a0!",
               },
-            ] as { name: string; date: string; text: string }[]).map((r, i) => (
+            ] as { name: string; color: string; date: string; text: string }[]).map((r, i) => (
               <div key={i} className="flex flex-col rounded-2xl p-6" style={{ backgroundColor: '#2A2A2A', border: '1px solid #3A3A3A' }}>
                 <div className="flex items-center gap-3 mb-4">
-                  <div className="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 font-bold text-white text-base" style={{ backgroundColor: '#B8977E' }}>
+                  <div className="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 font-bold text-white text-base" style={{ backgroundColor: r.color }}>
                     {r.name.charAt(0)}
                   </div>
                   <div className="min-w-0">
@@ -618,6 +626,19 @@ export default function GiuseppeCostaAereSite() {
                 <p className="text-sm leading-relaxed flex-1" style={{ color: '#C0C0C0' }}>&ldquo;{r.text}&rdquo;</p>
               </div>
             ))}
+          </div>
+
+          <div className="text-center mt-10">
+            <a
+              href="https://www.google.com/maps/place/Giuseppe+Costa,+physioth%C3%A9rapeute+et+masseur+th%C3%A9rapeutique+ASCA/@46.5436,6.6655,17z/data=!4m8!3m7!1s0x478c2d23538b0d81:0x3ffda1570c8938a8!8m2!3d46.5436!4d6.6655!9m1!1b1"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-8 py-3 rounded-full font-semibold text-white transition-colors"
+              style={{ backgroundColor: '#B8977E' }}
+            >
+              Voir tous les avis
+              <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
+            </a>
           </div>
         </div>
       </section>
