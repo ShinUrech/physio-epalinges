@@ -630,7 +630,7 @@ export default function GiuseppeCostaAereSite() {
 
           <div className="text-center mt-10">
             <a
-              href="https://www.google.com/maps/place/Giuseppe+Costa,+physioth%C3%A9rapeute+et+masseur+th%C3%A9rapeutique+ASCA/@46.5436,6.6655,17z/data=!4m8!3m7!1s0x478c2d23538b0d81:0x3ffda1570c8938a8!8m2!3d46.5436!4d6.6655!9m1!1b1"
+              href="https://www.google.com/maps/place/Giuseppe+Costa+physioth%C3%A9rapeute+et+masseur+th%C3%A9rapeutique+ASCA/@46.547962,6.6682833,17z/data=!4m8!3m7!1s0x4eed446a7d5164af:0x3d5cdfa38278364d!8m2!3d46.547962!4d6.6708582!9m1!1b1!16s%2Fg%2F11wtktvpqd"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-8 py-3 rounded-full font-semibold text-white transition-colors"
