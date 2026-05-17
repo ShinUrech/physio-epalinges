@@ -546,7 +546,7 @@ export default function GiuseppeCostaAereSite() {
               <span className="text-sm ml-1" style={{ color: '#999' }}>· 36 avis</span>
             </div>
             <a
-              href="https://g.page/r/CaijCMcXod8_EBM/review"
+              href="https://www.google.com/maps/place/Giuseppe+Costa+physioth%C3%A9rapeute+et+masseur+th%C3%A9rapeutique+ASCA/@46.547962,6.6682833,17z/data=!4m8!3m7!1s0x4eed446a7d5164af:0x3d5cdfa38278364d!8m2!3d46.547962!4d6.6708582!9m1!1b1!16s%2Fg%2F11wtktvpqd"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-block mt-4 text-sm font-semibold px-5 py-2 rounded-full border transition-colors hover:bg-white hover:text-black"
