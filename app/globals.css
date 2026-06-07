@@ -10,6 +10,15 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-lato);
   --font-serif: var(--font-prata);
+
+  /* Brand palette — mirror of lib/theme.ts COLORS.
+     Enables utilities like bg-accent / text-ink / border-line. */
+  --color-accent: #b8977e;
+  --color-charcoal: #1e1e1e;
+  --color-ink: #2c2c2c;
+  --color-cream: #faf9f6;
+  --color-sand: #f3f0eb;
+  --color-line: #e5e0db;
 }
 
 /* Dark mode intentionally disabled for this site */

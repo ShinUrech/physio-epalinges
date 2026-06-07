@@ -42,3 +42,6 @@ next-env.d.ts
 
 # CV images (private documents)
 /peppe_cv_page_by_page/
+
+# backup files
+*.bak
