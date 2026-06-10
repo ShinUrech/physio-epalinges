@@ -290,7 +290,7 @@ export default function GiuseppeCostaAereSite() {
             >
               <div className="w-full h-48 flex-shrink-0 relative overflow-hidden" style={{ backgroundColor: COLORS.placeholder }}>
                 {item.image ? (
-                  <Image src={item.image} alt={item.title} fill sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw" className="object-cover" />
+                  <Image src={item.image} alt={item.title} fill sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw" className="object-cover" style={{ objectPosition: item.imagePosition }} />
                 ) : (
                   <span className="absolute inset-0 flex items-center justify-center text-sm" style={{ color: '#999' }}>Photo</span>
                 )}
@@ -354,7 +354,7 @@ export default function GiuseppeCostaAereSite() {
             </button>
             <div className="w-full h-56 relative overflow-hidden rounded-t-3xl" style={{ backgroundColor: COLORS.placeholder }}>
               {treatmentModal.image ? (
-                <Image src={treatmentModal.image} alt={treatmentModal.title} fill sizes="(max-width: 768px) 100vw, 768px" className="object-cover" />
+                <Image src={treatmentModal.image} alt={treatmentModal.title} fill sizes="(max-width: 768px) 100vw, 768px" className="object-cover" style={{ objectPosition: treatmentModal.imagePosition }} />
               ) : (
                 <span className="absolute inset-0 flex items-center justify-center text-sm" style={{ color: '#999' }}>Photo</span>
               )}

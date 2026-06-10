@@ -1,7 +1,7 @@
 // Site content, separated from presentation.
 // Edit copy/data here; the components in app/ and components/ render it.
 
-export type Treatment = { id: string; title: string; desc: string; image?: string };
+export type Treatment = { id: string; title: string; desc: string; image?: string; imagePosition?: string };
 
 export type Specialisation = {
   title: string;
@@ -28,7 +28,7 @@ export type ExerciceCategory = { title: string; description: string; videos: Vid
 // ── Homepage ────────────────────────────────────────────────────────────────
 
 export const treatments: Treatment[] = [
-  { id: 'manipulations-vertebrales', image: '/gallery/photos/DSC03324.jpg', title: "Manipulations Vertébrales", desc: "Techniques de thérapie manuelle orthopédique visant à restaurer la mobilité articulaire des vertèbres cervicales, dorsales et lombaires. Indiquées pour les blocages articulaires et les douleurs chroniques du dos et du cou, elles s'appuient sur les approches Maitland et Mulligan pour un traitement précis et ciblé. La mobilisation articulaire permet de retrouver une amplitude de mouvement optimale tout en réduisant la douleur et les contractures musculaires associées." },
+  { id: 'manipulations-vertebrales', image: '/gallery/photos/DSC03324.jpg', imagePosition: 'center 85%', title: "Manipulations Vertébrales", desc: "Techniques de thérapie manuelle orthopédique visant à restaurer la mobilité articulaire des vertèbres cervicales, dorsales et lombaires. Indiquées pour les blocages articulaires et les douleurs chroniques du dos et du cou, elles s'appuient sur les approches Maitland et Mulligan pour un traitement précis et ciblé. La mobilisation articulaire permet de retrouver une amplitude de mouvement optimale tout en réduisant la douleur et les contractures musculaires associées." },
   { id: 'dry-needling', title: "Dry Needling", desc: "Insertion de fines aiguilles dans les points gâchettes (trigger points) myofasciaux pour relâcher les tensions musculaires profondes et réduire la douleur. Technique complémentaire particulièrement efficace contre les douleurs cervicales, dorsales, les myalgies chroniques et les céphalées de tension. La désactivation des trigger points améliore la circulation locale, restaure la longueur musculaire normale et diminue l'excitabilité du système nerveux central." },
   { id: 'ondes-de-choc', image: '/gallery/photos/DSC03236.jpg', title: "Ondes de Choc", desc: "Traitement par ondes acoustiques à haute énergie ciblant les zones douloureuses chroniques. Particulièrement efficace pour les tendinopathies (épaule, coude, genou, talon d'Achille), les calcifications, la fasciite plantaire et les douleurs de cicatrisation. Les ondes de choc stimulent la néo-vascularisation, accélèrent la régénération tissulaire et désactivent les nocicepteurs responsables de la douleur chronique." },
   { id: 'cervicalgie', image: '/gallery/photos/DSC03131.jpg', title: "Traitement de Cervicalgie / Cervicobrachigie", desc: "Prise en charge complète des douleurs cervicales et des irradiations vers le bras (cervicobrachigie), causées par une atteinte discale, une compression nerveuse ou un déséquilibre musculaire. Le traitement combine thérapie manuelle ciblée, mobilisations neurales et techniques Mulligan pour éliminer la douleur à la source, associé à des exercices de stabilisation cervicale progressive pour prévenir les récidives." },
