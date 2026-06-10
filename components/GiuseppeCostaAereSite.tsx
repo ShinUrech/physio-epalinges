@@ -288,7 +288,13 @@ export default function GiuseppeCostaAereSite() {
               className="text-left rounded-3xl shadow-sm hover:shadow-xl transition-shadow flex flex-col overflow-hidden cursor-pointer ring-2 ring-transparent hover:ring-accent focus-visible:ring-accent focus:outline-none"
               style={{ backgroundColor: COLORS.cream, border: `1px solid ${COLORS.line}`, height: '460px' }}
             >
-              <div className="w-full h-48 flex-shrink-0 flex items-center justify-center text-sm" style={{ backgroundColor: COLORS.placeholder, color: '#999' }}>Photo</div>
+              <div className="w-full h-48 flex-shrink-0 relative overflow-hidden" style={{ backgroundColor: COLORS.placeholder }}>
+                {item.image ? (
+                  <Image src={item.image} alt={item.title} fill sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw" className="object-cover" />
+                ) : (
+                  <span className="absolute inset-0 flex items-center justify-center text-sm" style={{ color: '#999' }}>Photo</span>
+                )}
+              </div>
               <div className="p-8 flex flex-col flex-1 min-h-0">
                 <h3 className="flex-shrink-0 text-2xl font-bold mb-3 tracking-tight leading-tight" style={{ color: COLORS.ink }}>{item.title}</h3>
                 <div className="relative flex-1 min-h-0 overflow-hidden">
@@ -346,7 +352,13 @@ export default function GiuseppeCostaAereSite() {
                 <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
               </svg>
             </button>
-            <div className="w-full h-56 flex items-center justify-center text-sm rounded-t-3xl" style={{ backgroundColor: COLORS.placeholder, color: '#999' }}>Photo</div>
+            <div className="w-full h-56 relative overflow-hidden rounded-t-3xl" style={{ backgroundColor: COLORS.placeholder }}>
+              {treatmentModal.image ? (
+                <Image src={treatmentModal.image} alt={treatmentModal.title} fill sizes="(max-width: 768px) 100vw, 768px" className="object-cover" />
+              ) : (
+                <span className="absolute inset-0 flex items-center justify-center text-sm" style={{ color: '#999' }}>Photo</span>
+              )}
+            </div>
             <div className="p-8 md:p-12">
               {treatmentModal.id === 'massage-asca' ? (
                 <>
