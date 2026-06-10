@@ -3,7 +3,8 @@
 import React from 'react';
 import Image from 'next/image';
 import { Phone, MapPin, Clock, ArrowRight } from 'lucide-react';
-import Model, { IExerciseData } from 'react-body-highlighter';
+import dynamic from 'next/dynamic';
+import type { IExerciseData } from 'react-body-highlighter';
 import LazyVideo from '@/components/LazyVideo';
 import { COLORS } from '@/lib/theme';
 import {
@@ -15,6 +16,14 @@ import {
   practice,
   type Treatment,
 } from '@/lib/content';
+
+// The body-diagram library is only used in the below-the-fold "Domaines d'expertise"
+// section. Load it on the client after initial paint so it stays out of the
+// first-load JS bundle (ssr:false is allowed here — this is a Client Component).
+const Model = dynamic(() => import('react-body-highlighter'), {
+  ssr: false,
+  loading: () => <div style={{ width: 128, height: 128 }} aria-hidden />,
+});
 
 const WIDGET_ID = '2edd69a4568fd84cd1ef80774acbcefd42cc98790aaefdafd65a4f2e8f85edd1';
 
@@ -195,7 +204,7 @@ export default function GiuseppeCostaAereSite() {
       {/* HERO SECTION (Très aérée) */}
       <header className="relative text-white" style={{ backgroundColor: COLORS.charcoal }}>
         <div className="absolute inset-0 overflow-hidden opacity-25 mix-blend-overlay">
-          <Image src="/hero-bg.jpg" alt="" fill className="object-cover object-center" priority />
+          <Image src="/hero-bg.jpg" alt="" fill className="object-cover object-center" priority quality={60} sizes="100vw" />
         </div>
         <div className="relative max-w-7xl mx-auto px-6 py-32 md:py-48 flex flex-col items-center text-center">
           <h1 className="text-6xl md:text-7xl font-extrabold leading-tight mb-6 max-w-4xl tracking-tight font-serif">

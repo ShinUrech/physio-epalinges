@@ -45,3 +45,6 @@ next-env.d.ts
 
 # backup files
 *.bak
+
+# raw media assets (large; keep out of git/Vercel deploys)
+/new_content/

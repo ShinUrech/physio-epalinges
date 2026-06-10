@@ -230,8 +230,9 @@ export default function ExercicesPage() {
           <div className="grid grid-cols-1 sm:grid-cols-2" style={{ borderBottom: `1px solid ${COLORS.line}` }}>
             {/* Kit 5 */}
             <div className="flex flex-row" style={{ borderBottom: `1px solid ${COLORS.line}` }} >
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/gallery/office_3.jpg" alt="Kit 5 élastiques" className="w-28 sm:w-32 object-cover shrink-0 self-stretch" style={{ borderRight: `1px solid ${COLORS.line}` }} />
+              <div className="relative w-28 sm:w-32 shrink-0 self-stretch" style={{ borderRight: `1px solid ${COLORS.line}` }}>
+                <Image src="/gallery/office_3.jpg" alt="Kit 5 élastiques" fill sizes="128px" className="object-cover" />
+              </div>
               <div className="px-5 py-4 flex flex-col gap-2 flex-1">
                 <div className="flex items-baseline justify-between gap-2">
                   <span className="font-extrabold text-base" style={{ color: COLORS.ink }}>Kit 5 élastiques</span>
@@ -250,8 +251,9 @@ export default function ExercicesPage() {
 
             {/* GC à la pièce */}
             <div className="flex flex-row">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/gallery/elastics_product.jpeg" alt="Élastiques GC" className="w-28 sm:w-32 object-cover shrink-0 self-stretch" style={{ borderRight: `1px solid ${COLORS.line}` }} />
+              <div className="relative w-28 sm:w-32 shrink-0 self-stretch" style={{ borderRight: `1px solid ${COLORS.line}` }}>
+                <Image src="/gallery/elastics_product.jpeg" alt="Élastiques GC" fill sizes="128px" className="object-cover" />
+              </div>
               <div className="px-5 py-4 flex flex-col gap-2 flex-1">
                 <div className="flex items-baseline justify-between gap-2">
                   <span className="font-extrabold text-base" style={{ color: COLORS.ink }}>Élastiques GC</span>
