@@ -29,13 +29,13 @@ export type ExerciceCategory = { title: string; description: string; videos: Vid
 
 export const treatments: Treatment[] = [
   { id: 'manipulations-vertebrales', image: '/gallery/photos/DSC03324.jpg', imagePosition: 'center 85%', title: "Manipulations Vertébrales", desc: "Techniques de thérapie manuelle orthopédique visant à restaurer la mobilité articulaire des vertèbres cervicales, dorsales et lombaires. Indiquées pour les blocages articulaires et les douleurs chroniques du dos et du cou, elles s'appuient sur les approches Maitland et Mulligan pour un traitement précis et ciblé. La mobilisation articulaire permet de retrouver une amplitude de mouvement optimale tout en réduisant la douleur et les contractures musculaires associées." },
-  { id: 'dry-needling', title: "Dry Needling", desc: "Insertion de fines aiguilles dans les points gâchettes (trigger points) myofasciaux pour relâcher les tensions musculaires profondes et réduire la douleur. Technique complémentaire particulièrement efficace contre les douleurs cervicales, dorsales, les myalgies chroniques et les céphalées de tension. La désactivation des trigger points améliore la circulation locale, restaure la longueur musculaire normale et diminue l'excitabilité du système nerveux central." },
+  { id: 'dry-needling', image: '/gallery/photos/dry-needling.jpg', imagePosition: 'center 80%', title: "Dry Needling", desc: "Insertion de fines aiguilles dans les points gâchettes (trigger points) myofasciaux pour relâcher les tensions musculaires profondes et réduire la douleur. Technique complémentaire particulièrement efficace contre les douleurs cervicales, dorsales, les myalgies chroniques et les céphalées de tension. La désactivation des trigger points améliore la circulation locale, restaure la longueur musculaire normale et diminue l'excitabilité du système nerveux central." },
   { id: 'ondes-de-choc', image: '/gallery/photos/DSC03236.jpg', title: "Ondes de Choc", desc: "Traitement par ondes acoustiques à haute énergie ciblant les zones douloureuses chroniques. Particulièrement efficace pour les tendinopathies (épaule, coude, genou, talon d'Achille), les calcifications, la fasciite plantaire et les douleurs de cicatrisation. Les ondes de choc stimulent la néo-vascularisation, accélèrent la régénération tissulaire et désactivent les nocicepteurs responsables de la douleur chronique." },
   { id: 'cervicalgie', image: '/gallery/photos/DSC03131.jpg', title: "Traitement de Cervicalgie / Cervicobrachigie", desc: "Prise en charge complète des douleurs cervicales et des irradiations vers le bras (cervicobrachigie), causées par une atteinte discale, une compression nerveuse ou un déséquilibre musculaire. Le traitement combine thérapie manuelle ciblée, mobilisations neurales et techniques Mulligan pour éliminer la douleur à la source, associé à des exercices de stabilisation cervicale progressive pour prévenir les récidives." },
   { id: 'atm', image: '/gallery/photos/DSC03254.jpg', title: "Traitement de l'ATM", desc: "L'ATM (articulation temporo-mandibulaire) peut souffrir d'un déséquilibre musculaire, provoquant des douleurs au niveau de la mâchoire, des tempes, des sinus ou de la nuque. Je prends en charge ces dysfonctions avec des techniques manuelles ciblées incluant la mobilisation articulaire, le relâchement des muscles masticateurs (ptérygoïdien, temporal, masséter) et la rééducation posturale cranio-cervicale." },
   { id: 'maux-de-tete', image: '/gallery/photos/DSC03305.jpg', title: "Traitement de Maux de Tête", desc: "Approche physiothérapeutique des céphalées de tension et des migraines cervicogènes par thérapie manuelle ciblée sur les articulations cervicales hautes (C0–C3) et les muscles sous-occipitaux, fréquemment à l'origine des douleurs de tête chroniques. Mobilisation neurale du nerf grand occipital et relâchement myofascial pour une réduction durable de la fréquence et de l'intensité des crises." },
   { id: 'massage-asca', image: '/gallery/photos/DSC03330.jpg', title: "Massage Thérapeutique Remboursé (ASCA)", desc: "Massages thérapeutiques reconnus par la méthode ASCA, remboursables par certaines assurances complémentaires. Soulagement des tensions musculaires, des douleurs articulaires et amélioration de la récupération grâce à des techniques personnalisées (massage sportif, décontracturant, thérapie manuelle). Chaque séance de 45 minutes débute par une anamnèse personnalisée pour adapter le traitement à vos besoins spécifiques." },
-  { id: 'compex', title: "Bottes de compression Compex", desc: "Les bottes de compression Compex utilisent la pressothérapie pneumatique séquentielle pour trois indications principales : le drainage lymphatique (réduction des œdèmes et des jambes lourdes), la récupération après l'effort (élimination des métabolites, réduction des courbatures et retour au sport accéléré), et le traitement de la cellulite (stimulation de la microcirculation et déstockage des graisses sous-cutanées). Idéales pour les sportifs, les patients en post-opératoire et toute personne souhaitant améliorer son confort circulatoire au quotidien." },
+  { id: 'compex', image: '/gallery/photos/compex.jpg', title: "Bottes de compression Compex", desc: "Les bottes de compression Compex utilisent la pressothérapie pneumatique séquentielle pour trois indications principales : le drainage lymphatique (réduction des œdèmes et des jambes lourdes), la récupération après l'effort (élimination des métabolites, réduction des courbatures et retour au sport accéléré), et le traitement de la cellulite (stimulation de la microcirculation et déstockage des graisses sous-cutanées). Idéales pour les sportifs, les patients en post-opératoire et toute personne souhaitant améliorer son confort circulatoire au quotidien." },
 ];
 
 export const specialisations: Specialisation[] = [
@@ -68,10 +68,7 @@ export const specialisations: Specialisation[] = [
 
 export const galleryItems: GalleryItem[] = [
   { type: 'image', src: '/gallery/photos/DSC02969.jpg', alt: 'Giuseppe Costa, physiothérapeute à Épalinges', width: 1365, height: 2048 },
-  { type: 'image', src: '/gallery/photos/DSC03012.jpg', alt: 'Exercice de rééducation avec élastique sur step', width: 1365, height: 2048 },
-  { type: 'image', src: '/gallery/photos/DSC03121.jpg', alt: 'Explication de l\'anatomie sur tablette lors d\'une consultation', width: 1365, height: 2048 },
   { type: 'image', src: '/gallery/photos/DSC03236.jpg', alt: 'Traitement par ondes de choc à l\'épaule', width: 1365, height: 2048 },
-  { type: 'image', src: '/gallery/photos/DSC03081.jpg', alt: 'Séance de physiothérapie sur table de traitement', width: 1365, height: 2048 },
   { type: 'image', src: '/gallery/photos/DSC03264.jpg', alt: 'Traitement de l\'articulation temporo-mandibulaire (ATM)', width: 1365, height: 2048 },
   { type: 'image', src: '/gallery/photos/DSC03278.jpg', alt: 'Traitement cervical en décubitus dorsal', width: 1365, height: 2048 },
   { type: 'image', src: '/gallery/photos/DSC03231.jpg', alt: 'Pose de bandes de taping (kinesio-taping)', width: 1365, height: 2048 },
@@ -94,7 +91,6 @@ export const galleryItems: GalleryItem[] = [
   { type: 'image', src: '/gallery/photos/DSC03042.jpg', alt: 'Giuseppe Costa, physiothérapeute à Épalinges', width: 1365, height: 2048 },
   { type: 'image', src: '/gallery/photos/DSC03258.jpg', alt: 'Giuseppe Costa en séance de traitement', width: 1365, height: 2048 },
   { type: 'image', src: '/gallery/photos/DSC03391.jpg', alt: 'Giuseppe Costa, physiothérapeute du sport', width: 1365, height: 2048 },
-  { type: 'image', src: '/gallery/photos/DSC03425.jpg', alt: 'Cabinet de physiothérapie à Épalinges', width: 2048, height: 1365 },
 ];
 
 export const reviews: Review[] = [
@@ -218,12 +214,13 @@ export const exerciceCategories: ExerciceCategory[] = [
 
 // ── Practice / contact (used by UI + SEO JSON-LD) ─────────────────────────────
 
-export const SITE_URL = 'https://physio-epalinges.ch';
+export const SITE_URL = 'https://physio-epalinges.vercel.app';
 
 export const practice = {
   name: 'Physio-Epalinges - Giuseppe Costa',
-  phoneDisplay: '021 784 26 66',
-  phoneHref: 'tel:+41217842666',
+  phoneDisplay: '076 824 03 87',
+  phoneHref: 'tel:+41768240387',
+  hoursDisplay: 'Lundi – Vendredi : 8h – 18h30',
   whatsapp: 'https://wa.me/41768240387',
   linkedin: 'https://www.linkedin.com/in/giuseppe-costa-65697bb6/',
   mapsUrl:

@@ -211,14 +211,14 @@ export default function GiuseppeCostaAereSite() {
             Giuseppe Costa
           </h1>
           <p className="text-2xl md:text-3xl mb-12 max-w-3xl font-semibold leading-snug" style={{ color: COLORS.taupe }}>
-            Physiothérapeute du sport et thérapie manuelle
+            Physiothérapie du sport et thérapie manuelle
           </p>
           <div className="flex flex-col sm:flex-row gap-6">
             <button onClick={() => setBookingOpen(true)} className="px-10 py-4 rounded-full text-lg font-bold flex items-center justify-center transition-colors shadow-xl" style={{ backgroundColor: COLORS.accent, color: '#fff' }}>
               Prendre rendez-vous <ArrowRight className="ml-2.5 w-5 h-5" />
             </button>
             <a href={practice.phoneHref} className="border-2 text-white px-10 py-4 rounded-full text-lg font-bold flex items-center justify-center transition-colors" style={{ borderColor: COLORS.accent }}>
-              <Phone className="mr-2.5 w-5 h-5" /> 021 784 26 66
+              <Phone className="mr-2.5 w-5 h-5" /> 076 824 03 87
             </a>
           </div>
         </div>
@@ -259,6 +259,18 @@ export default function GiuseppeCostaAereSite() {
               <div className="flex-shrink-0 w-[260px] md:w-[340px] h-full rounded-3xl overflow-hidden shadow-md border border-slate-200">
                 <LazyVideo src="/gallery/office_1.mp4" poster="/gallery/posters/office_1.jpg" ariaLabel="Visite du cabinet" className="w-full h-full object-cover" />
               </div>
+              <button type="button" onClick={() => setLightbox('/gallery/photos/DSC03425.jpg')} aria-label="Agrandir : Cabinet de physiothérapie à Épalinges" className="relative flex-shrink-0 w-[240px] md:w-[300px] h-full rounded-3xl overflow-hidden shadow-md border border-slate-200 cursor-zoom-in hover:opacity-90 transition-opacity">
+                <Image src="/gallery/photos/DSC03425.jpg" alt="Cabinet de physiothérapie à Épalinges" fill className="object-cover" sizes="300px" />
+              </button>
+              <button type="button" onClick={() => setLightbox('/gallery/photos/DSC03012.jpg')} aria-label="Agrandir : Exercice de rééducation avec élastique sur step" className="relative flex-shrink-0 w-[240px] md:w-[300px] h-full rounded-3xl overflow-hidden shadow-md border border-slate-200 cursor-zoom-in hover:opacity-90 transition-opacity">
+                <Image src="/gallery/photos/DSC03012.jpg" alt="Exercice de rééducation avec élastique sur step" fill className="object-cover" sizes="300px" />
+              </button>
+              <button type="button" onClick={() => setLightbox('/gallery/photos/DSC03121.jpg')} aria-label="Agrandir : Explication de l'anatomie sur tablette lors d'une consultation" className="relative flex-shrink-0 w-[240px] md:w-[300px] h-full rounded-3xl overflow-hidden shadow-md border border-slate-200 cursor-zoom-in hover:opacity-90 transition-opacity">
+                <Image src="/gallery/photos/DSC03121.jpg" alt="Explication de l'anatomie sur tablette lors d'une consultation" fill className="object-cover" sizes="300px" />
+              </button>
+              <button type="button" onClick={() => setLightbox('/gallery/photos/DSC03081.jpg')} aria-label="Agrandir : Séance de physiothérapie sur table de traitement" className="relative flex-shrink-0 w-[240px] md:w-[300px] h-full rounded-3xl overflow-hidden shadow-md border border-slate-200 cursor-zoom-in hover:opacity-90 transition-opacity">
+                <Image src="/gallery/photos/DSC03081.jpg" alt="Séance de physiothérapie sur table de traitement" fill className="object-cover" sizes="300px" />
+              </button>
             </div>
             <button
               onClick={() => officeCarouselRef.current?.scrollBy({ left: 320, behavior: 'smooth' })}
@@ -408,7 +420,7 @@ export default function GiuseppeCostaAereSite() {
                     </p>
                     <div className="flex flex-col gap-3 mt-4">
                       <a href={practice.phoneHref} className="block text-center px-8 py-3 rounded-full text-base font-bold transition-colors" style={{ backgroundColor: COLORS.accent, color: '#fff' }}>
-                        021 784 26 66
+                        076 824 03 87
                       </a>
                       <button onClick={() => { setTreatmentModal(null); setBookingOpen(true); }} className="block w-full text-center px-8 py-3 rounded-full text-base font-bold transition-colors border-2" style={{ borderColor: COLORS.accent, color: COLORS.accent }}>
                         Prendre RDV en ligne
@@ -425,7 +437,7 @@ export default function GiuseppeCostaAereSite() {
                   )}
                   <div className="pt-2 flex flex-col gap-3">
                     <a href={practice.phoneHref} className="block text-center px-8 py-3 rounded-full text-base font-bold transition-colors" style={{ backgroundColor: COLORS.accent, color: '#fff' }}>
-                      021 784 26 66
+                      076 824 03 87
                     </a>
                     <button onClick={() => { setTreatmentModal(null); setBookingOpen(true); }} className="block w-full text-center px-8 py-3 rounded-full text-base font-bold transition-colors border-2" style={{ borderColor: COLORS.accent, color: COLORS.accent }}>
                       Prendre RDV en ligne
@@ -451,7 +463,7 @@ export default function GiuseppeCostaAereSite() {
               <span>Master en Physiothérapie du Sport Università di Pisa</span>
             </p>
             <p className="flex items-start"><ArrowRight className="w-6 h-6 mr-4 shrink-0 mt-1.5" style={{ color: COLORS.accent }} />
-              <span>Master en Thérapie manuelle &amp; Exercice thérapeutique Université de Bologne</span>
+              <span>Master en Thérapie manuelle &amp; Exercice thérapeutique Université de Bologne — mémoire sur la prise en charge des entorses latérales de cheville</span>
             </p>
             <p className="flex items-start"><ArrowRight className="w-6 h-6 mr-4 shrink-0 mt-1.5" style={{ color: COLORS.accent }} />
               <span>Titre OMPT (Orthopaedic Manipulative Physical Therapist) IFOMPT</span>
@@ -623,11 +635,11 @@ export default function GiuseppeCostaAereSite() {
                 </li>
                 <li className="flex items-center">
                   <Phone className="w-7 h-7 mr-5 shrink-0" style={{ color: COLORS.accent }} />
-                  <span className="font-bold text-white text-xl">021 784 26 66</span>
+                  <span className="font-bold text-white text-xl">076 824 03 87</span>
                 </li>
                 <li className="flex items-center">
                   <Clock className="w-7 h-7 mr-5 shrink-0" style={{ color: COLORS.accent }} />
-                  <span className="text-xl">Horaires sur demande</span>
+                  <span className="text-xl">{practice.hoursDisplay}</span>
                 </li>
               </ul>
             </div>

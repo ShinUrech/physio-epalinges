@@ -16,7 +16,7 @@ const lato = Lato({
 });
 
 const description =
-  "Physiothérapeute du sport et thérapie manuelle à Épalinges. Giuseppe Costa, expert en rééducation sportive et thérapie manuelle orthopédique (OMPT).";
+  "Physiothérapie du sport et thérapie manuelle à Épalinges. Giuseppe Costa, expert en rééducation sportive et thérapie manuelle orthopédique (OMPT).";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),

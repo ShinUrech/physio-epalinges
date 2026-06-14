@@ -12,10 +12,16 @@ const jsonLd = {
   description:
     "Cabinet de physiothérapie du sport et thérapie manuelle à Épalinges (VD). Giuseppe Costa, physiothérapeute OMPT.",
   url: SITE_URL,
-  telephone: "+41 21 784 26 66",
+  telephone: "+41 76 824 03 87",
   image: `${SITE_URL}/hero-bg.jpg`,
   priceRange: "$$",
   currenciesAccepted: "CHF",
+  openingHoursSpecification: {
+    "@type": "OpeningHoursSpecification",
+    dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+    opens: "08:00",
+    closes: "18:30",
+  },
   address: {
     "@type": "PostalAddress",
     streetAddress: practice.address.street,
