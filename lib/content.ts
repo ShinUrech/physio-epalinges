@@ -91,6 +91,13 @@ export const galleryItems: GalleryItem[] = [
   { type: 'image', src: '/gallery/photos/DSC03042.jpg', alt: 'Giuseppe Costa, physiothérapeute à Épalinges', width: 1365, height: 2048 },
   { type: 'image', src: '/gallery/photos/DSC03258.jpg', alt: 'Giuseppe Costa en séance de traitement', width: 1365, height: 2048 },
   { type: 'image', src: '/gallery/photos/DSC03391.jpg', alt: 'Giuseppe Costa, physiothérapeute du sport', width: 1365, height: 2048 },
+  { type: 'image', src: '/gallery/physio_21.jpg', alt: 'Giuseppe Costa, physiothérapeute du Lausanne-Sport', width: 736, height: 1033 },
+  { type: 'image', src: '/gallery/physio_24.jpg', alt: 'Giuseppe Costa sur le terrain', width: 1066, height: 1600 },
+  { type: 'image', src: '/gallery/physio_22.jpg', alt: 'Soins en vestiaire lors d’un match de football', width: 736, height: 628 },
+  { type: 'image', src: '/gallery/physio_19.jpg', alt: 'Giuseppe Costa avec un joueur de l’équipe suisse de football M18', width: 736, height: 1251 },
+  { type: 'image', src: '/gallery/physio_23.jpg', alt: 'Giuseppe Costa au bord du terrain avec un joueur', width: 1066, height: 1600 },
+  { type: 'image', src: '/gallery/physio_18.jpg', alt: 'Massage de récupération d’un sportif', width: 736, height: 1151 },
+  { type: 'image', src: '/gallery/physio_20.jpg', alt: 'Massage thérapeutique d’un athlète', width: 736, height: 696 },
 ];
 
 export const reviews: Review[] = [
