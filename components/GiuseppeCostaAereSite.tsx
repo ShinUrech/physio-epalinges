@@ -202,10 +202,9 @@ export default function GiuseppeCostaAereSite() {
       </nav>
 
       {/* HERO SECTION (Très aérée) */}
-      <header className="relative text-white" style={{ backgroundColor: COLORS.charcoal }}>
-        <div className="absolute inset-0 overflow-hidden opacity-25 mix-blend-overlay">
-          <Image src="/hero-bg.jpg" alt="" fill className="object-cover object-center" priority quality={60} sizes="100vw" />
-        </div>
+      <header className="relative text-white overflow-hidden" style={{ backgroundColor: COLORS.charcoal }}>
+        <Image src="/gallery/photos/DSC03425.jpg" alt="" fill priority className="object-cover object-center opacity-10" sizes="100vw" />
+        <div className="absolute inset-0" style={{ background: 'linear-gradient(rgba(23,23,23,0.25), rgba(23,23,23,0.4))' }} />
         <div className="relative max-w-7xl mx-auto px-6 py-32 md:py-48 flex flex-col items-center text-center">
           <h1 className="text-6xl md:text-7xl font-extrabold leading-tight mb-6 max-w-4xl tracking-tight font-serif">
             Giuseppe Costa
@@ -302,7 +301,14 @@ export default function GiuseppeCostaAereSite() {
             >
               <div className="w-full h-48 flex-shrink-0 relative overflow-hidden" style={{ backgroundColor: COLORS.placeholder }}>
                 {item.image ? (
-                  <Image src={item.image} alt={item.title} fill sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw" className="object-cover" style={{ objectPosition: item.imagePosition }} />
+                  item.fit === 'contain' ? (
+                    <>
+                      <Image src={item.image} alt="" aria-hidden fill sizes="(max-width: 640px) 100vw, 25vw" className="object-cover blur-2xl scale-110" />
+                      <Image src={item.image} alt={item.title} fill sizes="(max-width: 640px) 100vw, 25vw" className="object-contain" />
+                    </>
+                  ) : (
+                    <Image src={item.image} alt={item.title} fill sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw" className="object-cover" style={{ objectPosition: item.imagePosition }} />
+                  )
                 ) : (
                   <span className="absolute inset-0 flex items-center justify-center text-sm" style={{ color: '#999' }}>Photo</span>
                 )}
@@ -354,7 +360,7 @@ export default function GiuseppeCostaAereSite() {
       {/* TREATMENT MODAL */}
       {treatmentModal && (
         <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/80 p-4" onClick={() => setTreatmentModal(null)}>
-          <div role="dialog" aria-modal="true" aria-label={treatmentModal.title} className="relative max-w-3xl w-full max-h-[90vh] overflow-y-auto rounded-3xl shadow-2xl" style={{ backgroundColor: COLORS.cream }} onClick={e => e.stopPropagation()}>
+          <div role="dialog" aria-modal="true" aria-label={treatmentModal.title} className="relative max-w-3xl w-full max-h-[90vh] flex flex-col overflow-hidden rounded-3xl shadow-2xl" style={{ backgroundColor: COLORS.cream }} onClick={e => e.stopPropagation()}>
             <button
               onClick={() => setTreatmentModal(null)}
               className="absolute top-4 right-4 z-10 bg-black/50 text-white rounded-full p-3 hover:bg-black/80 transition-colors"
@@ -364,14 +370,21 @@ export default function GiuseppeCostaAereSite() {
                 <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
               </svg>
             </button>
-            <div className="w-full h-56 relative overflow-hidden rounded-t-3xl" style={{ backgroundColor: COLORS.placeholder }}>
+            <div className="w-full h-56 shrink-0 relative overflow-hidden" style={{ backgroundColor: COLORS.placeholder }}>
               {treatmentModal.image ? (
-                <Image src={treatmentModal.image} alt={treatmentModal.title} fill sizes="(max-width: 768px) 100vw, 768px" className="object-cover" style={{ objectPosition: treatmentModal.imagePosition }} />
+                treatmentModal.fit === 'contain' ? (
+                  <>
+                    <Image src={treatmentModal.image} alt="" aria-hidden fill sizes="768px" className="object-cover blur-2xl scale-110" />
+                    <Image src={treatmentModal.image} alt={treatmentModal.title} fill sizes="(max-width: 768px) 100vw, 768px" className="object-contain" />
+                  </>
+                ) : (
+                  <Image src={treatmentModal.image} alt={treatmentModal.title} fill sizes="(max-width: 768px) 100vw, 768px" className="object-cover" style={{ objectPosition: treatmentModal.imagePosition }} />
+                )
               ) : (
                 <span className="absolute inset-0 flex items-center justify-center text-sm" style={{ color: '#999' }}>Photo</span>
               )}
             </div>
-            <div className="p-8 md:p-12">
+            <div className="p-8 md:p-12 flex-1 min-h-0 overflow-y-auto">
               {treatmentModal.id === 'massage-asca' ? (
                 <>
                   <h2 className="text-2xl md:text-3xl font-extrabold mb-6 tracking-tight font-serif" style={{ color: COLORS.ink }}>MASSAGES PROFESSIONNELS POUR VOTRE BIEN-ÊTRE</h2>
