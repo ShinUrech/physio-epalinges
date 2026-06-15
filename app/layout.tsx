@@ -46,14 +46,14 @@ export const metadata: Metadata = {
     title: "Physio-Epalinges – Giuseppe Costa",
     description,
     images: [
-      { url: "/hero-bg.jpg", width: 1920, height: 1438, alt: "Physio-Epalinges – Giuseppe Costa" },
+      { url: "/og-image.jpg", width: 1200, height: 630, alt: "Cabinet de physiothérapie Giuseppe Costa à Épalinges" },
     ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Physio-Epalinges – Giuseppe Costa",
     description,
-    images: ["/hero-bg.jpg"],
+    images: ["/og-image.jpg"],
   },
 };
 
