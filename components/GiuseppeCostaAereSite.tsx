@@ -249,11 +249,14 @@ export default function GiuseppeCostaAereSite() {
               <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5 text-slate-700" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" /></svg>
             </button>
             <div ref={officeCarouselRef} className="flex gap-3 h-full overflow-x-auto rounded-3xl" style={{ scrollbarWidth: 'none' } as React.CSSProperties}>
-              <button type="button" onClick={() => setLightbox('/gallery/office_2.jpg')} aria-label="Agrandir : Cabinet – vue générale" className="relative flex-shrink-0 w-[240px] md:w-[300px] h-full rounded-3xl overflow-hidden shadow-md border border-slate-200 cursor-zoom-in hover:opacity-90 transition-opacity">
-                <Image src="/gallery/office_2.jpg" alt="Cabinet – vue générale" fill className="object-cover" sizes="300px" />
+              <button type="button" onClick={() => setLightbox('/gallery/photos/salle_1.jpg')} aria-label="Agrandir : Salle de rééducation et d'entraînement" className="relative flex-shrink-0 w-[240px] md:w-[300px] h-full rounded-3xl overflow-hidden shadow-md border border-slate-200 cursor-zoom-in hover:opacity-90 transition-opacity">
+                <Image src="/gallery/photos/salle_1.jpg" alt="Salle de rééducation et d'entraînement du cabinet" fill className="object-cover" sizes="300px" />
               </button>
-              <button type="button" onClick={() => setLightbox('/gallery/office_3.jpg')} aria-label="Agrandir : Cabinet – équipements" className="relative flex-shrink-0 w-[240px] md:w-[300px] h-full rounded-3xl overflow-hidden shadow-md border border-slate-200 cursor-zoom-in hover:opacity-90 transition-opacity">
-                <Image src="/gallery/office_3.jpg" alt="Cabinet – équipements" fill className="object-cover" sizes="300px" />
+              <button type="button" onClick={() => setLightbox('/gallery/photos/salle_2.jpg')} aria-label="Agrandir : Espalier et bandes élastiques de rééducation" className="relative flex-shrink-0 w-[240px] md:w-[300px] h-full rounded-3xl overflow-hidden shadow-md border border-slate-200 cursor-zoom-in hover:opacity-90 transition-opacity">
+                <Image src="/gallery/photos/salle_2.jpg" alt="Espalier et bandes élastiques de rééducation" fill className="object-cover" sizes="300px" />
+              </button>
+              <button type="button" onClick={() => setLightbox('/gallery/photos/salle_3.jpg')} aria-label="Agrandir : Matériel de renforcement et de rééducation" className="relative flex-shrink-0 w-[240px] md:w-[300px] h-full rounded-3xl overflow-hidden shadow-md border border-slate-200 cursor-zoom-in hover:opacity-90 transition-opacity">
+                <Image src="/gallery/photos/salle_3.jpg" alt="Matériel de renforcement et de rééducation du cabinet" fill className="object-cover" sizes="300px" />
               </button>
               <div className="flex-shrink-0 w-[260px] md:w-[340px] h-full rounded-3xl overflow-hidden shadow-md border border-slate-200">
                 <LazyVideo src="/gallery/office_1.mp4" poster="/gallery/posters/office_1.jpg" ariaLabel="Visite du cabinet" className="w-full h-full object-cover" />
